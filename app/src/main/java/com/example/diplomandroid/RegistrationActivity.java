@@ -24,7 +24,7 @@ public class RegistrationActivity extends AppCompatActivity {
         final EditText passwordEditText = findViewById(R.id.RegistrationPasswordEditText);
         button.setOnClickListener((View v) -> {
             RetrofitController controller = new RetrofitController();
-            controller.sendRegistrationRequest(this, emailEditText.getText().toString(),
+            controller.registration(this, emailEditText.getText().toString(),
                     passwordEditText.getText().toString());
         });
     }
