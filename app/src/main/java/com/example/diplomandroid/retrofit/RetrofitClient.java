@@ -12,4 +12,10 @@ public interface RetrofitClient {
     @POST("auth")
     Call<ApiResponse> authentication(@Body AuthRequest authRequest);
 
+//    @Headers("Content-Type:application/json; charset=UTF-8")
+//    @GET("/user/get")
+//    Call<ApiResponse> testAuth(@Header("Authorization") String auth);
+//
+//    @GET("/user/get")
+//    Call<ApiResponse> testNoAuth();
 }

@@ -1,8 +1,10 @@
 package com.example.diplomandroid.retrofit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.widget.Toast;
 
+import com.example.diplomandroid.MainActivity;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -13,12 +15,14 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitController {
+
     private static final String BASE_URL = "http://10.0.2.2:8080/";
     private final RetrofitClient client;
 
     public RetrofitController() {
         client = buildRetrofit().create(RetrofitClient.class);
     }
+
 
     //Настройка Retrofit
     private Retrofit buildRetrofit() {
@@ -51,8 +55,18 @@ public class RetrofitController {
         c.enqueue(new Callback<ApiResponse>() {
             @Override
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
-                System.out.println(response.body().getResponse());
-                Toast.makeText(context, response.body().getResponse(), Toast.LENGTH_SHORT).show();
+                if (response.isSuccessful()) {
+                    String result = response.body().getResponse();
+                    if (result.equals("Invalid email")) {
+                        Toast.makeText(context, "Invalid email", Toast.LENGTH_SHORT).show();
+                    } else if (result.equals("Invalid password")) {
+                        Toast.makeText(context, "Invalid password", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Token.setToken(response.body().getResponse());
+                        Intent intent = new Intent(context, MainActivity.class);
+                        context.startActivity(intent);
+                    }
+                }
             }
 
             @Override
@@ -62,8 +76,8 @@ public class RetrofitController {
         });
     }
 
-//    public void sendRegistrationRequest(Context context, String email, String password) {
-//        Call<ApiResponse> c = client.registration(email, password);
+//    public void testAuth(Context context) {
+//        Call<ApiResponse> c = client.testAuth(Token.getToken());
 //        c.enqueue(new Callback<ApiResponse>() {
 //            @Override
 //            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
@@ -72,56 +86,24 @@ public class RetrofitController {
 //
 //            @Override
 //            public void onFailure(Call<ApiResponse> call, Throwable t) {
-//                Toast.makeText(context, "LOX", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(context, "LOX!!!", Toast.LENGTH_SHORT).show();
 //            }
 //        });
 //    }
 //
-//    public void login(Context context,String email, String password) {
-//        Call c = client.login(email, password);
-//        c.enqueue(new Callback() {
-//
-//           @Override
-//            public void onResponse(Call call, Response response) {
-//               Toast.makeText(context, "Correct!", Toast.LENGTH_SHORT).show();
-//            }
-//
-//            @Override
-//            public void onFailure(Call call, Throwable t) {
-//                    Toast.makeText(context, "lox!!!!!!!!!!", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//    }
-//
-//    //Отправка запроса к Api
-//    public void getData(Context context, TextView textView) {
-//        Call<ApiResponse> c = client.test();
+//    public void testNoAuth(Context context) {
+//        Call<ApiResponse> c = client.testNoAuth();
 //        c.enqueue(new Callback<ApiResponse>() {
 //            @Override
 //            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
-//                textView.setText(response.body().getResponse());
-//            }
-//            @Override
-//            public void onFailure(Call<ApiResponse> call, Throwable t) {
-//                Toast.makeText(context, "Lox", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//    }
-//
-//    //Отправка запроса к Api
-//    public void sendData(Context context,TextView textView) {
-//        Call<ApiResponse> c = client.send("Andrew","Karpinskiy");
-//        c.enqueue(new Callback<ApiResponse>() {
-//            @Override
-//            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
-//                textView.setText(response.body().getResponse());
+//                Toast.makeText(context, response.body().getResponse(), Toast.LENGTH_SHORT).show();
 //            }
 //
 //            @Override
 //            public void onFailure(Call<ApiResponse> call, Throwable t) {
-//                Toast.makeText(context, "Lox", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(context, "LOX!!!", Toast.LENGTH_SHORT).show();
 //            }
 //        });
-//
 //    }
 }
+

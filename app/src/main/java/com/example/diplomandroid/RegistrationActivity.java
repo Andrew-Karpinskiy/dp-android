@@ -26,6 +26,7 @@ public class RegistrationActivity extends AppCompatActivity {
             RetrofitController controller = new RetrofitController();
             controller.registration(this, emailEditText.getText().toString(),
                     passwordEditText.getText().toString());
+
         });
     }
 }

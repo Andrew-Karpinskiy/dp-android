@@ -24,8 +24,11 @@ public class LoginActivity extends AppCompatActivity {
         final EditText passwordEditText = findViewById(R.id.LoginPasswordEditText);
         button.setOnClickListener((View v) -> {
             RetrofitController controller = new RetrofitController();
+            //RetrofitController controller = new RetrofitController();
+
             controller.login(this, emailEditText.getText().toString(),
                     passwordEditText.getText().toString());
+
         });
     }
 }
