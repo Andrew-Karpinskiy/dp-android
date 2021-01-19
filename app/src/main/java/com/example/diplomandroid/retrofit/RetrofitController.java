@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
+import com.example.diplomandroid.LoginActivity;
 import com.example.diplomandroid.MainActivity;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -39,7 +40,15 @@ public class RetrofitController {
         c.enqueue(new Callback<ApiResponse>() {
             @Override
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
-                Toast.makeText(context, response.body().getResponse(), Toast.LENGTH_SHORT).show();
+                if (response.isSuccessful()) {
+                    if (response.body().getResponse().equals("Email exist")) {
+                        Toast.makeText(context, "Email exist", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Intent intent = new Intent(context, LoginActivity.class);
+                        context.startActivity(intent);
+                    }
+                }
+
             }
 
             @Override
@@ -67,6 +76,36 @@ public class RetrofitController {
                         context.startActivity(intent);
                     }
                 }
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse> call, Throwable t) {
+                Toast.makeText(context, "LOX!!!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void getBodyMassIndex(Context context, double weight, double height) {
+        Call<ApiResponse> c = client.bmiIndex(weight, height);
+        c.enqueue(new Callback<ApiResponse>() {
+            @Override
+            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+                Toast.makeText(context, response.body().getResponse(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse> call, Throwable t) {
+                Toast.makeText(context, "LOX!!!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void getDailyWaterRequirement(Context context, double weight) {
+        Call<ApiResponse> c = client.dwr(weight);
+        c.enqueue(new Callback<ApiResponse>() {
+            @Override
+            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+                Toast.makeText(context, response.body().getResponse(), Toast.LENGTH_SHORT).show();
             }
 
             @Override

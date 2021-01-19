@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         registration();
         login();
+        bmi();
+        dwr();
     }
 
     private void registration() {
@@ -29,6 +31,22 @@ public class MainActivity extends AppCompatActivity {
         final Button button = findViewById(R.id.logButton);
         button.setOnClickListener((View v) -> {
             Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        });
+    }
+
+    private void bmi() {
+        final Button button = findViewById(R.id.bmiButton);
+        button.setOnClickListener((View v) -> {
+            Intent intent = new Intent(this, BodyMassIndexActivity.class);
+            startActivity(intent);
+        });
+    }
+
+    private void dwr() {
+        final Button button = findViewById(R.id.dwrButton);
+        button.setOnClickListener((View v) -> {
+            Intent intent = new Intent(this, DailyWaterRequirementActivity.class);
             startActivity(intent);
         });
     }
