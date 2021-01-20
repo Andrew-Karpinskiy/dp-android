@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
         login();
         bmi();
         dwr();
+        iw();
+        dca();
     }
 
     private void registration() {
@@ -47,6 +49,22 @@ public class MainActivity extends AppCompatActivity {
         final Button button = findViewById(R.id.dwrButton);
         button.setOnClickListener((View v) -> {
             Intent intent = new Intent(this, DailyWaterRequirementActivity.class);
+            startActivity(intent);
+        });
+    }
+
+    private void iw() {
+        final Button button = findViewById(R.id.iwButton);
+        button.setOnClickListener((View v) -> {
+            Intent intent = new Intent(this, IdealWeightActivity.class);
+            startActivity(intent);
+        });
+    }
+
+    private void dca() {
+        final Button button = findViewById(R.id.dcaButton);
+        button.setOnClickListener((View v) -> {
+            Intent intent = new Intent(this, DailyCaloriesAmountActivity.class);
             startActivity(intent);
         });
     }

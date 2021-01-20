@@ -115,6 +115,40 @@ public class RetrofitController {
         });
     }
 
+    public void getIdealWeight(Context context, String sex, double height) {
+        Call<ApiResponse> c = client.idealWeight(sex, height);
+        c.enqueue(new Callback<ApiResponse>() {
+            @Override
+            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+                Toast.makeText(context, response.body().getResponse(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse> call, Throwable t) {
+                Toast.makeText(context, "LOX!!!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+    public void getDailyCaloriesAmount(Context context, String sex, double weight, double height, double age,
+                                       int load) {
+        Call<ApiResponse> c = client.dailyCalories(sex, weight, height, age, load);
+        c.enqueue(new Callback<ApiResponse>() {
+            @Override
+            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+                Toast.makeText(context, response.body().getResponse(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse> call, Throwable t) {
+                Toast.makeText(context, "LOX!!!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+    }
+
 //    public void testAuth(Context context) {
 //        Call<ApiResponse> c = client.testAuth(Token.getToken());
 //        c.enqueue(new Callback<ApiResponse>() {

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DailyCaloriesAmountActivity">
+
+    <Button
+        android:id="@+id/dailyCaloriesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/dailyCaloriesLoadEditText"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="@+id/dailyCaloriesLoadEditText"
+        app:layout_constraintTop_toBottomOf="@+id/dailyCaloriesLoadEditText"
+        app:layout_constraintVertical_bias="0.234" />
+
+    <EditText
+        android:id="@+id/dailyCaloriesSexEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Sex"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.048" />
+
+    <EditText
+        android:id="@+id/dailyCaloriesWeightEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Weight"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/dailyCaloriesSexEditText"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/dailyCaloriesSexEditText"
+        app:layout_constraintTop_toBottomOf="@+id/dailyCaloriesSexEditText"
+        app:layout_constraintVertical_bias="0.067" />
+
+    <EditText
+        android:id="@+id/dailyCaloriesHeightEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Height"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/dailyCaloriesWeightEditText"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/dailyCaloriesWeightEditText"
+        app:layout_constraintTop_toBottomOf="@+id/dailyCaloriesWeightEditText"
+        app:layout_constraintVertical_bias="0.084" />
+
+    <EditText
+        android:id="@+id/dailyCaloriesLoadEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Load"
+        android:inputType="numberSigned"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/dailyCaloriesAgeEditText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/dailyCaloriesAgeEditText"
+        app:layout_constraintTop_toBottomOf="@+id/dailyCaloriesAgeEditText"
+        app:layout_constraintVertical_bias="0.109" />
+
+    <EditText
+        android:id="@+id/dailyCaloriesAgeEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Age"
+        android:inputType="numberSigned"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/dailyCaloriesHeightEditText"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/dailyCaloriesHeightEditText"
+        app:layout_constraintTop_toBottomOf="@+id/dailyCaloriesHeightEditText"
+        app:layout_constraintVertical_bias="0.099" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

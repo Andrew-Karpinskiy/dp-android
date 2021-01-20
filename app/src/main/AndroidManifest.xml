@@ -15,7 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="n">
-        <activity android:name=".DailyWaterRequirementActivity"></activity>
+        <activity android:name=".DailyCaloriesAmountActivity"></activity>
+        <activity android:name=".IdealWeightActivity" />
+        <activity android:name=".DailyWaterRequirementActivity" />
         <activity android:name=".BodyMassIndexActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegistrationActivity" />

@@ -53,4 +53,28 @@
         app:layout_constraintStart_toStartOf="@+id/bmiButton"
         app:layout_constraintTop_toBottomOf="@+id/bmiButton"
         app:layout_constraintVertical_bias="0.07" />
+
+    <Button
+        android:id="@+id/iwButton"
+        android:layout_width="175dp"
+        android:layout_height="44dp"
+        android:text="Ideal Weight"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/dwrButton"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="@+id/dwrButton"
+        app:layout_constraintTop_toBottomOf="@+id/dwrButton"
+        app:layout_constraintVertical_bias="0.114" />
+
+    <Button
+        android:id="@+id/dcaButton"
+        android:layout_width="164dp"
+        android:layout_height="49dp"
+        android:text="Daily Calories"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/iwButton"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="@+id/iwButton"
+        app:layout_constraintTop_toBottomOf="@+id/iwButton"
+        app:layout_constraintVertical_bias="0.14" />
 </androidx.constraintlayout.widget.ConstraintLayout>
