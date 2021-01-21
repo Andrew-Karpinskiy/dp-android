@@ -1,4 +1,4 @@
-package com.example.diplomandroid.retrofit;
+package com.example.diplomandroid.retrofit.data.request;
 
 public class RegistrationRequest {
     private String email;

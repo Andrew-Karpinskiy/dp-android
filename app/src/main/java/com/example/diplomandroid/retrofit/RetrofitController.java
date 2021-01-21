@@ -4,8 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
-import com.example.diplomandroid.LoginActivity;
-import com.example.diplomandroid.MainActivity;
+import com.example.diplomandroid.activity.LoginActivity;
+import com.example.diplomandroid.activity.MainActivity;
+import com.example.diplomandroid.retrofit.data.request.AuthRequest;
+import com.example.diplomandroid.retrofit.data.request.CalculatorsRequest;
+import com.example.diplomandroid.retrofit.data.request.RegistrationRequest;
+import com.example.diplomandroid.retrofit.data.response.AuthResponse;
+import com.example.diplomandroid.retrofit.data.response.CalculatorsResponse;
+import com.example.diplomandroid.retrofit.data.response.SimpleResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -36,12 +42,12 @@ public class RetrofitController {
 
     public void registration(Context context, String email, String password) {
         RegistrationRequest registrationRequest = new RegistrationRequest(email, password);
-        Call<ApiResponse> c = client.registration(registrationRequest);
-        c.enqueue(new Callback<ApiResponse>() {
+        Call<SimpleResponse> c = client.registration(registrationRequest);
+        c.enqueue(new Callback<SimpleResponse>() {
             @Override
-            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+            public void onResponse(Call<SimpleResponse> call, Response<SimpleResponse> response) {
                 if (response.isSuccessful()) {
-                    if (response.body().getResponse().equals("Email exist")) {
+                    if (response.body().getMessage().equals("Email exist")) {
                         Toast.makeText(context, "Email exist", Toast.LENGTH_SHORT).show();
                     } else {
                         Intent intent = new Intent(context, LoginActivity.class);
@@ -52,7 +58,7 @@ public class RetrofitController {
             }
 
             @Override
-            public void onFailure(Call<ApiResponse> call, Throwable t) {
+            public void onFailure(Call<SimpleResponse> call, Throwable t) {
                 Toast.makeText(context, "LOX!!!", Toast.LENGTH_SHORT).show();
             }
         });
@@ -60,18 +66,18 @@ public class RetrofitController {
 
     public void login(Context context, String email, String password) {
         AuthRequest authRequest = new AuthRequest(email, password);
-        Call<ApiResponse> c = client.authentication(authRequest);
-        c.enqueue(new Callback<ApiResponse>() {
+        Call<AuthResponse> c = client.authentication(authRequest);
+        c.enqueue(new Callback<AuthResponse>() {
             @Override
-            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+            public void onResponse(Call<AuthResponse> call, Response<AuthResponse> response) {
                 if (response.isSuccessful()) {
-                    String result = response.body().getResponse();
+                    String result = response.body().getMessage();
                     if (result.equals("Invalid email")) {
                         Toast.makeText(context, "Invalid email", Toast.LENGTH_SHORT).show();
                     } else if (result.equals("Invalid password")) {
                         Toast.makeText(context, "Invalid password", Toast.LENGTH_SHORT).show();
                     } else {
-                        Token.setToken(response.body().getResponse());
+                        Token.setToken(response.body().getToken());
                         Intent intent = new Intent(context, MainActivity.class);
                         context.startActivity(intent);
                     }
@@ -79,52 +85,56 @@ public class RetrofitController {
             }
 
             @Override
-            public void onFailure(Call<ApiResponse> call, Throwable t) {
+            public void onFailure(Call<AuthResponse> call, Throwable t) {
                 Toast.makeText(context, "LOX!!!", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     public void getBodyMassIndex(Context context, double weight, double height) {
-        Call<ApiResponse> c = client.bmiIndex(weight, height);
-        c.enqueue(new Callback<ApiResponse>() {
+        CalculatorsRequest calculatorsRequest = new CalculatorsRequest(weight, height);
+        Call<CalculatorsResponse> c = client.bmiIndex(calculatorsRequest);
+        c.enqueue(new Callback<CalculatorsResponse>() {
             @Override
-            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
-                Toast.makeText(context, response.body().getResponse(), Toast.LENGTH_SHORT).show();
+            public void onResponse(Call<CalculatorsResponse> call, Response<CalculatorsResponse> response) {
+                String message = response.body().getResult() + response.body().getMessage();
+                Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
             }
 
             @Override
-            public void onFailure(Call<ApiResponse> call, Throwable t) {
+            public void onFailure(Call<CalculatorsResponse> call, Throwable t) {
                 Toast.makeText(context, "LOX!!!", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     public void getDailyWaterRequirement(Context context, double weight) {
-        Call<ApiResponse> c = client.dwr(weight);
-        c.enqueue(new Callback<ApiResponse>() {
+        CalculatorsRequest calculatorsRequest = new CalculatorsRequest(weight);
+        Call<CalculatorsResponse> c = client.dwr(calculatorsRequest);
+        c.enqueue(new Callback<CalculatorsResponse>() {
             @Override
-            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
-                Toast.makeText(context, response.body().getResponse(), Toast.LENGTH_SHORT).show();
+            public void onResponse(Call<CalculatorsResponse> call, Response<CalculatorsResponse> response) {
+                Toast.makeText(context, String.valueOf(response.body().getResult()), Toast.LENGTH_SHORT).show();
             }
 
             @Override
-            public void onFailure(Call<ApiResponse> call, Throwable t) {
+            public void onFailure(Call<CalculatorsResponse> call, Throwable t) {
                 Toast.makeText(context, "LOX!!!", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     public void getIdealWeight(Context context, String sex, double height) {
-        Call<ApiResponse> c = client.idealWeight(sex, height);
-        c.enqueue(new Callback<ApiResponse>() {
+        CalculatorsRequest calculatorsRequest = new CalculatorsRequest(height, sex);
+        Call<CalculatorsResponse> c = client.idealWeight(calculatorsRequest);
+        c.enqueue(new Callback<CalculatorsResponse>() {
             @Override
-            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
-                Toast.makeText(context, response.body().getResponse(), Toast.LENGTH_SHORT).show();
+            public void onResponse(Call<CalculatorsResponse> call, Response<CalculatorsResponse> response) {
+                Toast.makeText(context, String.valueOf(response.body().getResult()), Toast.LENGTH_SHORT).show();
             }
 
             @Override
-            public void onFailure(Call<ApiResponse> call, Throwable t) {
+            public void onFailure(Call<CalculatorsResponse> call, Throwable t) {
                 Toast.makeText(context, "LOX!!!", Toast.LENGTH_SHORT).show();
             }
         });
@@ -133,15 +143,16 @@ public class RetrofitController {
 
     public void getDailyCaloriesAmount(Context context, String sex, double weight, double height, double age,
                                        int load) {
-        Call<ApiResponse> c = client.dailyCalories(sex, weight, height, age, load);
-        c.enqueue(new Callback<ApiResponse>() {
+        CalculatorsRequest calculatorsRequest = new CalculatorsRequest(sex, weight, height, age, load);
+        Call<CalculatorsResponse> c = client.dailyCalories(calculatorsRequest);
+        c.enqueue(new Callback<CalculatorsResponse>() {
             @Override
-            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
-                Toast.makeText(context, response.body().getResponse(), Toast.LENGTH_SHORT).show();
+            public void onResponse(Call<CalculatorsResponse> call, Response<CalculatorsResponse> response) {
+                Toast.makeText(context, String.valueOf(response.body().getResult()), Toast.LENGTH_SHORT).show();
             }
 
             @Override
-            public void onFailure(Call<ApiResponse> call, Throwable t) {
+            public void onFailure(Call<CalculatorsResponse> call, Throwable t) {
                 Toast.makeText(context, "LOX!!!", Toast.LENGTH_SHORT).show();
             }
         });

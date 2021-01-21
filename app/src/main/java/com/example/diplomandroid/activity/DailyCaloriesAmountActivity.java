@@ -1,4 +1,4 @@
-package com.example.diplomandroid;
+package com.example.diplomandroid.activity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -7,6 +7,7 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.diplomandroid.R;
 import com.example.diplomandroid.retrofit.RetrofitController;
 
 public class DailyCaloriesAmountActivity extends AppCompatActivity {
