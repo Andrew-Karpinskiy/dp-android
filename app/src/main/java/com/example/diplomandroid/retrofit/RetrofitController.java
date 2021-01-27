@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.widget.Toast;
 
 import com.example.diplomandroid.activity.LoginActivity;
-import com.example.diplomandroid.activity.MainActivity;
 import com.example.diplomandroid.retrofit.data.request.AuthRequest;
 import com.example.diplomandroid.retrofit.data.request.CalculatorsRequest;
 import com.example.diplomandroid.retrofit.data.request.RegistrationRequest;
@@ -78,8 +77,8 @@ public class RetrofitController {
                         Toast.makeText(context, "Invalid password", Toast.LENGTH_SHORT).show();
                     } else {
                         Token.setToken(response.body().getToken());
-                        Intent intent = new Intent(context, MainActivity.class);
-                        context.startActivity(intent);
+//                        Intent intent = new Intent(context, MainActivity.class);
+                        //                      context.startActivity(intent);
                     }
                 }
             }
