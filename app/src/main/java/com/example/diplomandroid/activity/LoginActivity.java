@@ -8,7 +8,7 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.diplomandroid.R;
-import com.example.diplomandroid.retrofit.RetrofitController;
+import com.example.diplomandroid.repository.retrofit.RetrofitController;
 
 public class LoginActivity extends AppCompatActivity {
 

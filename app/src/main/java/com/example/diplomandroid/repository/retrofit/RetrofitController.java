@@ -1,16 +1,21 @@
-package com.example.diplomandroid.retrofit;
+package com.example.diplomandroid.repository.retrofit;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.core.content.ContextCompat;
+
+import com.example.diplomandroid.R;
 import com.example.diplomandroid.activity.LoginActivity;
-import com.example.diplomandroid.retrofit.data.request.AuthRequest;
-import com.example.diplomandroid.retrofit.data.request.CalculatorsRequest;
-import com.example.diplomandroid.retrofit.data.request.RegistrationRequest;
-import com.example.diplomandroid.retrofit.data.response.AuthResponse;
-import com.example.diplomandroid.retrofit.data.response.CalculatorsResponse;
-import com.example.diplomandroid.retrofit.data.response.SimpleResponse;
+import com.example.diplomandroid.repository.retrofit.request.AuthRequest;
+import com.example.diplomandroid.repository.retrofit.request.CalculatorsRequest;
+import com.example.diplomandroid.repository.retrofit.request.RegistrationRequest;
+import com.example.diplomandroid.repository.retrofit.response.AuthResponse;
+import com.example.diplomandroid.repository.retrofit.response.CalculatorsResponse;
+import com.example.diplomandroid.repository.retrofit.response.SimpleResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -90,19 +95,42 @@ public class RetrofitController {
         });
     }
 
-    public void getBodyMassIndex(Context context, double weight, double height) {
+    public void getBodyMassIndex(Context context, TextView result, double weight, double height) {
         CalculatorsRequest calculatorsRequest = new CalculatorsRequest(weight, height);
         Call<CalculatorsResponse> c = client.bmiIndex(calculatorsRequest);
         c.enqueue(new Callback<CalculatorsResponse>() {
+            @SuppressLint({"DefaultLocale"})
             @Override
             public void onResponse(Call<CalculatorsResponse> call, Response<CalculatorsResponse> response) {
-                String message = response.body().getResult() + response.body().getMessage();
-                Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+                result.setText(String.format("%.2f", response.body().getResult()));
+                String message = response.body().getMessage();
+
+                if (message.equals(context.getString(R.string.severe_underweight))) {
+                    result.setTextColor(ContextCompat.getColor(context, R.color.severeUnderweight));
+
+                } else if (message.equals(context.getString(R.string.underweight))) {
+                    result.setTextColor(ContextCompat.getColor(context, R.color.underweight));
+
+                } else if (message.equals(context.getString(R.string.norm))) {
+                    result.setTextColor(ContextCompat.getColor(context, R.color.norm));
+
+                } else if (message.equals(context.getString(R.string.overweight))) {
+                    result.setTextColor(ContextCompat.getColor(context, R.color.overweight));
+
+                } else if (message.equals(context.getString(R.string.obesity))) {
+                    result.setTextColor(ContextCompat.getColor(context, R.color.obesity));
+
+                } else if (message.equals(context.getString(R.string.acute_obesity))) {
+                    result.setTextColor(ContextCompat.getColor(context, R.color.acuteObesity));
+
+                } else if (message.equals(context.getString(R.string.very_severe_obesity))) {
+                    result.setTextColor(ContextCompat.getColor(context, R.color.verySevereObesity));
+                }
             }
 
             @Override
             public void onFailure(Call<CalculatorsResponse> call, Throwable t) {
-                Toast.makeText(context, "LOX!!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, context.getText(R.string.on_failure), Toast.LENGTH_SHORT).show();
             }
         });
     }

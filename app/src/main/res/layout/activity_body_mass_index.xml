@@ -4,44 +4,407 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.BodyMassIndexActivity">
+    android:background="@color/colorBackGround"
+    tools:context=".ui.calculators.bmi.BodyMassIndexActivity">
 
-    <EditText
-        android:id="@+id/bodyMassIndexWeightEditText"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Weight"
-        android:inputType="numberDecimal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.192" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="10dp" />
 
-    <EditText
-        android:id="@+id/bodyMassIndexHeightEditText"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Height"
-        android:inputType="numberDecimal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/bodyMassIndexWeightEditText"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="10dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="10dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="10dp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorCardBackGround"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="@+id/guideline1"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/bmiHeightLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/height"
+            android:textColor="@color/colorText"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/bmiWeightLabel"
+            app:layout_constraintTop_toBottomOf="@+id/bmiWeightEditText"
+            app:layout_constraintVertical_bias="0.109" />
+
+        <EditText
+            android:id="@+id/bmiWeightEditText"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:maxLength="3"
+            android:textColor="@color/colorText"
+            android:textColorHighlight="#FFFFFF"
+            android:textColorLink="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/bmiWeightLabel"
+            app:layout_constraintTop_toBottomOf="@+id/bmiWeightLabel"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/bmiHeightEditText"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="numberSigned"
+            android:maxLength="3"
+            android:textColor="@color/colorText"
+            android:textColorHighlight="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/bmiWeightEditText"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/bmiHeightLabel"
+            app:layout_constraintTop_toBottomOf="@+id/bmiHeightLabel"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/bmiWeightLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/weight"
+            android:textColor="@color/colorText"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.097"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.075" />
+
+        <Button
+            android:id="@+id/bmiSubmitButton"
+            android:layout_width="120dp"
+            android:layout_height="44dp"
+            android:background="@color/colorPrimary"
+            android:text="@string/calculate"
+            android:textColor="@color/colorText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/bmiCm"
+            app:layout_constraintHorizontal_bias="0.52"
+            app:layout_constraintStart_toEndOf="@+id/bmiHeightEditText"
+            app:layout_constraintTop_toBottomOf="@+id/bmiHeightEditText"
+            app:layout_constraintVertical_bias="0.304" />
+
+        <TextView
+            android:id="@+id/bmiKg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/kg"
+            android:textColor="@color/colorText"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/bmiWeightEditText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.708"
+            app:layout_constraintStart_toEndOf="@+id/bmiWeightEditText"
+            app:layout_constraintTop_toTopOf="@+id/bmiWeightEditText"
+            app:layout_constraintVertical_bias="0.523" />
+
+        <TextView
+            android:id="@+id/bmiCm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cm"
+            android:textColor="@color/colorText"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/bmiHeightEditText"
+            app:layout_constraintEnd_toEndOf="@+id/bmiKg"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/bmiHeightEditText"
+            app:layout_constraintTop_toTopOf="@+id/bmiHeightEditText"
+            app:layout_constraintVertical_bias="0.666" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="245dp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorCardBackGround"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/bodyMassIndexWeightEditText"
-        app:layout_constraintTop_toBottomOf="@+id/bodyMassIndexWeightEditText"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.0">
 
-    <Button
-        android:id="@+id/bodyMassIndexButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/bodyMassIndexHeightEditText"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="@+id/bodyMassIndexHeightEditText"
-        app:layout_constraintTop_toBottomOf="@+id/bodyMassIndexHeightEditText"
-        app:layout_constraintVertical_bias="0.165" />
+        <TextView
+            android:id="@+id/bmiTextView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/number_acute_obesity"
+            android:textColor="#E1690C"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/bmiTextView"
+            app:layout_constraintHorizontal_bias="0.928"
+            app:layout_constraintStart_toStartOf="@+id/bmiTextView"
+            app:layout_constraintTop_toBottomOf="@+id/bmiTextView5"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/bmiTextView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/number_very_severe_obesity"
+            android:textColor="#FB0000"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/bmiTextView"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/bmiTextView"
+            app:layout_constraintTop_toBottomOf="@+id/bmiTextView6"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/bmiTextView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/number_obesity"
+            android:textColor="#C6980D"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/bmiTextView"
+            app:layout_constraintHorizontal_bias="0.857"
+            app:layout_constraintStart_toStartOf="@+id/bmiTextView"
+            app:layout_constraintTop_toBottomOf="@+id/bmiTextView4"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/bmiTextView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/number_overweight"
+            android:textColor="#EAFB00"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/bmiTextView"
+            app:layout_constraintHorizontal_bias="0.928"
+            app:layout_constraintStart_toStartOf="@+id/bmiTextView"
+            app:layout_constraintTop_toBottomOf="@+id/bmiTextView3"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/bmiTextView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/number_norm"
+            android:textColor="#04FF08"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/bmiTextView"
+            app:layout_constraintHorizontal_bias="0.612"
+            app:layout_constraintStart_toStartOf="@+id/bmiTextView"
+            app:layout_constraintTop_toBottomOf="@+id/bmiTextView2"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/bmiResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="36sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bmiYourIndex"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/bmiYourIndex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/your_index"
+            android:textColor="@color/colorText"
+            android:textSize="36sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.038" />
+
+        <TextView
+            android:id="@+id/bmiTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/number_severe_underweight"
+            android:textColor="#E91E63"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.122"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bmiResult"
+            app:layout_constraintVertical_bias="0.056" />
+
+        <TextView
+            android:id="@+id/bmiTextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/number_underweight"
+            android:textColor="#F44336"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/bmiTextView"
+            app:layout_constraintHorizontal_bias="0.647"
+            app:layout_constraintStart_toStartOf="@+id/bmiTextView"
+            app:layout_constraintTop_toBottomOf="@+id/bmiTextView"
+            app:layout_constraintVertical_bias="0.003" />
+
+        <TextView
+            android:id="@+id/bmiFirstText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/severe_underweight"
+            android:textColor="#E91E63"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="@+id/bmiTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.533"
+            app:layout_constraintStart_toEndOf="@+id/bmiTextView"
+            app:layout_constraintTop_toTopOf="@+id/bmiTextView"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/bmiSecondText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/underweight"
+            android:textColor="#F44336"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/bmiFirstText"
+            app:layout_constraintStart_toStartOf="@+id/bmiFirstText"
+            app:layout_constraintTop_toBottomOf="@+id/bmiFirstText"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/bmiThirdText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/norm"
+            android:textColor="#04FF08"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/bmiFirstText"
+            app:layout_constraintStart_toStartOf="@+id/bmiFirstText"
+            app:layout_constraintTop_toBottomOf="@+id/bmiSecondText"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/bmiFourthText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="88dp"
+            android:text="@string/overweight"
+            android:textColor="#EAFB00"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/bmiFirstText"
+            app:layout_constraintHorizontal_bias="0.48"
+            app:layout_constraintStart_toStartOf="@+id/bmiFirstText"
+            app:layout_constraintTop_toBottomOf="@+id/bmiThirdText"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/bmiFivthText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/obesity"
+            android:textColor="#C6980D"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/bmiFirstText"
+            app:layout_constraintHorizontal_bias="0.513"
+            app:layout_constraintStart_toStartOf="@+id/bmiFirstText"
+            app:layout_constraintTop_toBottomOf="@+id/bmiFourthText"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/bmiSixthText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/acute_obesity"
+            android:textColor="#E1690C"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/bmiFirstText"
+            app:layout_constraintHorizontal_bias="0.513"
+            app:layout_constraintStart_toStartOf="@+id/bmiFirstText"
+            app:layout_constraintTop_toBottomOf="@+id/bmiFivthText"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/bmiSeventhText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/very_severe_obesity"
+            android:textColor="#FB0000"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/bmiFirstText"
+            app:layout_constraintStart_toStartOf="@+id/bmiFirstText"
+            app:layout_constraintTop_toBottomOf="@+id/bmiSixthText"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

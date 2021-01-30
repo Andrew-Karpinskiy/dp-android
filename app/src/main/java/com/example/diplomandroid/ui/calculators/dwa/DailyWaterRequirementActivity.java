@@ -1,4 +1,4 @@
-package com.example.diplomandroid.activity;
+package com.example.diplomandroid.ui.calculators.dwa;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,7 +8,7 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.diplomandroid.R;
-import com.example.diplomandroid.retrofit.RetrofitController;
+import com.example.diplomandroid.repository.retrofit.RetrofitController;
 
 public class DailyWaterRequirementActivity extends AppCompatActivity {
 

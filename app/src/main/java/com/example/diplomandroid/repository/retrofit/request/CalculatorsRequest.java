@@ -1,4 +1,4 @@
-package com.example.diplomandroid.retrofit.data.request;
+package com.example.diplomandroid.repository.retrofit.request;
 
 public class CalculatorsRequest {
     private String sex;

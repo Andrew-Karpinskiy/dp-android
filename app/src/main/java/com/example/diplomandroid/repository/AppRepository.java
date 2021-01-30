@@ -1,0 +1,39 @@
+package com.example.diplomandroid.repository;
+
+import android.content.Context;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import com.example.diplomandroid.repository.retrofit.InputDataValidation;
+import com.example.diplomandroid.repository.retrofit.RetrofitController;
+
+
+public class AppRepository {
+
+    private static AppRepository instance;
+    private final RetrofitController retrofit;
+    private final InputDataValidation inputDataValidation;
+
+
+    private AppRepository() {
+        retrofit = new RetrofitController();
+        inputDataValidation = new InputDataValidation();
+    }
+
+    public static AppRepository getInstance() {
+        if (instance == null) {
+            instance = new AppRepository();
+        }
+        return instance;
+    }
+
+    public void calculateBodyMassIndex(Context context, TextView result, double weight, double height) {
+        retrofit.getBodyMassIndex(context, result, weight, height);
+    }
+
+    public String validateBmiInput(Context context, EditText weightEditText, EditText heightEditText) {
+        return inputDataValidation.validateBmiInput(context, weightEditText, heightEditText);
+    }
+
+
+}

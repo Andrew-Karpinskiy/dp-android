@@ -1,4 +1,4 @@
-package com.example.diplomandroid.retrofit;
+package com.example.diplomandroid.repository.retrofit;
 
 public class Token {
     private static String token;

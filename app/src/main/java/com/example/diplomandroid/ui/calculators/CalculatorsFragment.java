@@ -4,31 +4,38 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.diplomandroid.R;
+import com.example.diplomandroid.ui.calculators.adapter.RecyclerViewAdapter;
 
 public class CalculatorsFragment extends Fragment {
+
     private CalculatorsViewModel calculatorsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         calculatorsViewModel =
                 new ViewModelProvider(this).get(CalculatorsViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_calculators, container, false);
-        final TextView textView = root.findViewById(R.id.text_calculators);
-        calculatorsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+
+        RecyclerView recyclerView = root.findViewById(R.id.recyclerView);
+        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(calculatorsViewModel.initData());
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(root.getContext(), LinearLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(recyclerViewAdapter);
         return root;
     }
+
+
+
+
+
 }

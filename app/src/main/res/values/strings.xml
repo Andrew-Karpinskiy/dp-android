@@ -7,10 +7,48 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
 
-
     <string name="menu_profile">Profile</string>
     <string name="menu_calculators">Calculators</string>
     <string name="menu_settings">Settings</string>
     <string name="menu_journals">Journals</string>
 
+    <string name="bmi_calculator_name">Body mass index</string>
+    <string name="dca_calculator_name">Daily calories amount</string>
+    <string name="dwa_calculator_name">Daily water amount</string>
+    <string name="iw_calculator_name">Ideal weight</string>
+
+    <string name="bmi_calculator_description">Calculates body mass index</string>
+    <string name="dca_calculator_description">Calculates your daily calorie requirement</string>
+    <string name="dwa_calculator_description">Calculates yor daily water requirement</string>
+    <string name="iw_calculator_description">Calculates the ideal weight for height</string>
+
+
+    <string name="number_severe_underweight">0 – 15</string>
+    <string name="number_underweight">16 – 18.5</string>
+    <string name="number_norm">18.5 – 25</string>
+    <string name="number_overweight">25 – 30</string>
+    <string name="number_obesity">30 – 35</string>
+    <string name="number_acute_obesity">35 – 40</string>
+    <string name="number_very_severe_obesity">40 – ∞</string>
+
+    <string name="severe_underweight">Severe underweight</string>
+    <string name="underweight">Underweight</string>
+    <string name="norm">Norm</string>
+    <string name="overweight">Overweight (pre obesity)</string>
+    <string name="obesity">Obesity</string>
+    <string name="acute_obesity">Acute obesity</string>
+    <string name="very_severe_obesity">Very severe obesity</string>
+
+    <string name="your_index">Your Index:</string>
+    <string name="weight">Weight</string>
+    <string name="height">Height</string>
+    <string name="kg">kg</string>
+    <string name="cm">cm</string>
+    <string name="calculate">Calculate</string>
+
+    <string name="empty_weight_form">Please enter weight</string>
+    <string name="empty_height_form">Please enter height</string>
+    <string name="all_forms_empty">Please fill out the forms</string>
+    <string name="correct">Correct</string>
+    <string name="on_failure">Error</string>
 </resources>

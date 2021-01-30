@@ -1,11 +1,11 @@
-package com.example.diplomandroid.retrofit;
+package com.example.diplomandroid.repository.retrofit;
 
-import com.example.diplomandroid.retrofit.data.request.AuthRequest;
-import com.example.diplomandroid.retrofit.data.request.CalculatorsRequest;
-import com.example.diplomandroid.retrofit.data.request.RegistrationRequest;
-import com.example.diplomandroid.retrofit.data.response.AuthResponse;
-import com.example.diplomandroid.retrofit.data.response.CalculatorsResponse;
-import com.example.diplomandroid.retrofit.data.response.SimpleResponse;
+import com.example.diplomandroid.repository.retrofit.request.AuthRequest;
+import com.example.diplomandroid.repository.retrofit.request.CalculatorsRequest;
+import com.example.diplomandroid.repository.retrofit.request.RegistrationRequest;
+import com.example.diplomandroid.repository.retrofit.response.AuthResponse;
+import com.example.diplomandroid.repository.retrofit.response.CalculatorsResponse;
+import com.example.diplomandroid.repository.retrofit.response.SimpleResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
