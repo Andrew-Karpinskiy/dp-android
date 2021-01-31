@@ -22,7 +22,6 @@
     <string name="dwa_calculator_description">Calculates yor daily water requirement</string>
     <string name="iw_calculator_description">Calculates the ideal weight for height</string>
 
-
     <string name="number_severe_underweight">0 – 15</string>
     <string name="number_underweight">16 – 18.5</string>
     <string name="number_norm">18.5 – 25</string>
@@ -39,11 +38,13 @@
     <string name="acute_obesity">Acute obesity</string>
     <string name="very_severe_obesity">Very severe obesity</string>
 
-    <string name="your_index">Your Index:</string>
+    <string name="your_index">Your index:</string>
+    <string name="your_water_amount">Your daily water amount:</string>
     <string name="weight">Weight</string>
     <string name="height">Height</string>
     <string name="kg">kg</string>
     <string name="cm">cm</string>
+    <string name="ml">ml</string>
     <string name="calculate">Calculate</string>
 
     <string name="empty_weight_form">Please enter weight</string>

@@ -15,7 +15,7 @@ import com.example.diplomandroid.R;
 import com.example.diplomandroid.ui.calculators.Calculators;
 import com.example.diplomandroid.ui.calculators.bmi.BodyMassIndexActivity;
 import com.example.diplomandroid.ui.calculators.dca.DailyCaloriesAmountActivity;
-import com.example.diplomandroid.ui.calculators.dwa.DailyWaterRequirementActivity;
+import com.example.diplomandroid.ui.calculators.dwa.DailyWaterAmountActivity;
 import com.example.diplomandroid.ui.calculators.iw.IdealWeightActivity;
 
 import java.util.List;
@@ -70,7 +70,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     Intent intent = new Intent(itemView.getContext(), DailyCaloriesAmountActivity.class);
                     itemView.getContext().startActivity(intent);
                 } else if (calculatorName.getText().equals("Daily water amount")) {
-                    Intent intent = new Intent(itemView.getContext(), DailyWaterRequirementActivity.class);
+                    Intent intent = new Intent(itemView.getContext(), DailyWaterAmountActivity.class);
                     itemView.getContext().startActivity(intent);
                 } else if (calculatorName.getText().equals("Ideal weight")) {
                     Intent intent = new Intent(itemView.getContext(), IdealWeightActivity.class);

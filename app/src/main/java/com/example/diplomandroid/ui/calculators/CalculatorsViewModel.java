@@ -1,13 +1,20 @@
 package com.example.diplomandroid.ui.calculators;
 
-import androidx.lifecycle.ViewModel;
+import android.app.Application;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 
 import com.example.diplomandroid.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CalculatorsViewModel extends ViewModel {
+public class CalculatorsViewModel extends AndroidViewModel {
+
+    public CalculatorsViewModel(@NonNull Application application) {
+        super(application);
+    }
 
     public List<Calculators> initData() {
         List<Calculators> data = new ArrayList<>();

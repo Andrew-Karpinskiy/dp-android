@@ -8,43 +8,43 @@
     tools:context=".ui.calculators.bmi.BodyMassIndexActivity">
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline1"
+        android:id="@+id/bmiGuideline1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="10dp" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
+        android:id="@+id/bmiGuideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_end="10dp" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
+        android:id="@+id/bmiGuideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="10dp" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
+        android:id="@+id/bmiGuideline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_end="10dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+        android:id="@+id/bmiConstraintLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/colorCardBackGround"
-        app:layout_constraintBottom_toTopOf="@+id/guideline5"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintBottom_toTopOf="@+id/bmiGuideline5"
+        app:layout_constraintEnd_toStartOf="@+id/bmiGuideline4"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toTopOf="@+id/guideline1"
+        app:layout_constraintStart_toStartOf="@+id/bmiGuideline3"
+        app:layout_constraintTop_toTopOf="@+id/bmiGuideline1"
         app:layout_constraintVertical_bias="1.0">
 
         <TextView
@@ -69,7 +69,7 @@
             android:ems="10"
             android:gravity="center"
             android:inputType="numberDecimal"
-            android:maxLength="3"
+            android:maxLength="5"
             android:textColor="@color/colorText"
             android:textColorHighlight="#FFFFFF"
             android:textColorLink="@color/colorAccent"
@@ -156,7 +156,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline5"
+        android:id="@+id/bmiGuideline5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -167,11 +167,11 @@
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:background="@color/colorCardBackGround"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintBottom_toTopOf="@+id/bmiGuideline2"
+        app:layout_constraintEnd_toStartOf="@+id/bmiGuideline4"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintStart_toStartOf="@+id/bmiGuideline3"
+        app:layout_constraintTop_toBottomOf="@+id/bmiConstraintLayout"
         app:layout_constraintVertical_bias="0.0">
 
         <TextView

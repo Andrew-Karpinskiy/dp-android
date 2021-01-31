@@ -19,6 +19,8 @@ import com.example.diplomandroid.repository.retrofit.response.SimpleResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import org.jetbrains.annotations.NotNull;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -33,7 +35,6 @@ public class RetrofitController {
     public RetrofitController() {
         client = buildRetrofit().create(RetrofitClient.class);
     }
-
 
     //Настройка Retrofit
     private Retrofit buildRetrofit() {
@@ -101,52 +102,57 @@ public class RetrofitController {
         c.enqueue(new Callback<CalculatorsResponse>() {
             @SuppressLint({"DefaultLocale"})
             @Override
-            public void onResponse(Call<CalculatorsResponse> call, Response<CalculatorsResponse> response) {
-                result.setText(String.format("%.2f", response.body().getResult()));
-                String message = response.body().getMessage();
+            public void onResponse(@NotNull Call<CalculatorsResponse> call, @NotNull Response<CalculatorsResponse> response) {
+                if (response.isSuccessful()) {
+                    result.setText(String.format("%.2f", response.body().getResult()));
+                    String message = response.body().getMessage();
 
-                if (message.equals(context.getString(R.string.severe_underweight))) {
-                    result.setTextColor(ContextCompat.getColor(context, R.color.severeUnderweight));
+                    if (message.equals(context.getString(R.string.severe_underweight))) {
+                        result.setTextColor(ContextCompat.getColor(context, R.color.severeUnderweight));
 
-                } else if (message.equals(context.getString(R.string.underweight))) {
-                    result.setTextColor(ContextCompat.getColor(context, R.color.underweight));
+                    } else if (message.equals(context.getString(R.string.underweight))) {
+                        result.setTextColor(ContextCompat.getColor(context, R.color.underweight));
 
-                } else if (message.equals(context.getString(R.string.norm))) {
-                    result.setTextColor(ContextCompat.getColor(context, R.color.norm));
+                    } else if (message.equals(context.getString(R.string.norm))) {
+                        result.setTextColor(ContextCompat.getColor(context, R.color.norm));
 
-                } else if (message.equals(context.getString(R.string.overweight))) {
-                    result.setTextColor(ContextCompat.getColor(context, R.color.overweight));
+                    } else if (message.equals(context.getString(R.string.overweight))) {
+                        result.setTextColor(ContextCompat.getColor(context, R.color.overweight));
 
-                } else if (message.equals(context.getString(R.string.obesity))) {
-                    result.setTextColor(ContextCompat.getColor(context, R.color.obesity));
+                    } else if (message.equals(context.getString(R.string.obesity))) {
+                        result.setTextColor(ContextCompat.getColor(context, R.color.obesity));
 
-                } else if (message.equals(context.getString(R.string.acute_obesity))) {
-                    result.setTextColor(ContextCompat.getColor(context, R.color.acuteObesity));
+                    } else if (message.equals(context.getString(R.string.acute_obesity))) {
+                        result.setTextColor(ContextCompat.getColor(context, R.color.acuteObesity));
 
-                } else if (message.equals(context.getString(R.string.very_severe_obesity))) {
-                    result.setTextColor(ContextCompat.getColor(context, R.color.verySevereObesity));
+                    } else if (message.equals(context.getString(R.string.very_severe_obesity))) {
+                        result.setTextColor(ContextCompat.getColor(context, R.color.verySevereObesity));
+                    }
                 }
             }
 
             @Override
-            public void onFailure(Call<CalculatorsResponse> call, Throwable t) {
+            public void onFailure(@NotNull Call<CalculatorsResponse> call, @NotNull Throwable t) {
                 Toast.makeText(context, context.getText(R.string.on_failure), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    public void getDailyWaterRequirement(Context context, double weight) {
+    public void getDailyWaterAmount(Context context, TextView result, double weight) {
         CalculatorsRequest calculatorsRequest = new CalculatorsRequest(weight);
         Call<CalculatorsResponse> c = client.dwr(calculatorsRequest);
         c.enqueue(new Callback<CalculatorsResponse>() {
+            @SuppressLint({"DefaultLocale", "SetTextI18n"})
             @Override
-            public void onResponse(Call<CalculatorsResponse> call, Response<CalculatorsResponse> response) {
-                Toast.makeText(context, String.valueOf(response.body().getResult()), Toast.LENGTH_SHORT).show();
+            public void onResponse(@NotNull Call<CalculatorsResponse> call, @NotNull Response<CalculatorsResponse> response) {
+                if (response.isSuccessful()) {
+                    result.setText(String.format("%.2f", response.body().getResult()) + " " + context.getString(R.string.ml));
+                }
             }
 
             @Override
-            public void onFailure(Call<CalculatorsResponse> call, Throwable t) {
-                Toast.makeText(context, "LOX!!!", Toast.LENGTH_SHORT).show();
+            public void onFailure(@NotNull Call<CalculatorsResponse> call, @NotNull Throwable t) {
+                Toast.makeText(context, context.getText(R.string.on_failure), Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -4,16 +4,13 @@ import android.content.Context;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.diplomandroid.repository.retrofit.InputDataValidation;
 import com.example.diplomandroid.repository.retrofit.RetrofitController;
 
 
 public class AppRepository {
-
     private static AppRepository instance;
     private final RetrofitController retrofit;
     private final InputDataValidation inputDataValidation;
-
 
     private AppRepository() {
         retrofit = new RetrofitController();
@@ -35,5 +32,11 @@ public class AppRepository {
         return inputDataValidation.validateBmiInput(context, weightEditText, heightEditText);
     }
 
+    public void getDailyWaterAmount(Context context, TextView result, double weight) {
+        retrofit.getDailyWaterAmount(context, result, weight);
+    }
 
+    public String validateDwaInput(Context context, EditText weightEditText) {
+        return inputDataValidation.validateDwaInput(context, weightEditText);
+    }
 }
