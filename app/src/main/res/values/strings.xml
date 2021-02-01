@@ -29,7 +29,6 @@
     <string name="number_obesity">30 – 35</string>
     <string name="number_acute_obesity">35 – 40</string>
     <string name="number_very_severe_obesity">40 – ∞</string>
-
     <string name="severe_underweight">Severe underweight</string>
     <string name="underweight">Underweight</string>
     <string name="norm">Norm</string>
@@ -38,10 +37,19 @@
     <string name="acute_obesity">Acute obesity</string>
     <string name="very_severe_obesity">Very severe obesity</string>
 
+    <string name="not_selected">Not selected</string>
+    <string-array name="gender_name">
+        <item>Not selected</item>
+        <item>Man</item>
+        <item>Woman</item>
+    </string-array>
+
     <string name="your_index">Your index:</string>
     <string name="your_water_amount">Your daily water amount:</string>
+    <string name="your_ideal_weight">Your ideal weight:</string>
     <string name="weight">Weight</string>
     <string name="height">Height</string>
+    <string name="gender">Gender</string>
     <string name="kg">kg</string>
     <string name="cm">cm</string>
     <string name="ml">ml</string>
@@ -49,6 +57,7 @@
 
     <string name="empty_weight_form">Please enter weight</string>
     <string name="empty_height_form">Please enter height</string>
+    <string name="empty_gender">Please choose gender</string>
     <string name="all_forms_empty">Please fill out the forms</string>
     <string name="correct">Correct</string>
     <string name="on_failure">Error</string>

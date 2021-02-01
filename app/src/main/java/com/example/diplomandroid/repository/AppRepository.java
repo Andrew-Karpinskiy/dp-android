@@ -39,4 +39,12 @@ public class AppRepository {
     public String validateDwaInput(Context context, EditText weightEditText) {
         return inputDataValidation.validateDwaInput(context, weightEditText);
     }
+
+    public void getIdealWeight(Context context, TextView result, String gender, double height) {
+        retrofit.getIdealWeight(context, result, gender, height);
+    }
+
+    public String validateIwInput(Context context, String gender, EditText heightEditText) {
+        return inputDataValidation.validateIwInput(context, gender, heightEditText);
+    }
 }

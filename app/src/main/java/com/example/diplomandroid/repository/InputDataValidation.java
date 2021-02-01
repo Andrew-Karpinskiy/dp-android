@@ -27,4 +27,17 @@ public class InputDataValidation {
             return context.getString(R.string.correct);
         }
     }
+
+    public String validateIwInput(Context context, String gender, EditText heightEditText) {
+        if (heightEditText.getText().length() != 0 && !gender.equals(context.getString(R.string.not_selected))) {
+            return context.getString(R.string.correct);
+        }
+        if (heightEditText.getText().length() == 0 && !gender.equals(context.getString(R.string.not_selected))) {
+            return context.getString(R.string.empty_height_form);
+        } else if (heightEditText.getText().length() != 0 && gender.equals(context.getString(R.string.not_selected))) {
+            return context.getString(R.string.empty_gender);
+        } else {
+            return context.getString(R.string.all_forms_empty);
+        }
+    }
 }

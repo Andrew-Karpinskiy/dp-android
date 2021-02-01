@@ -157,18 +157,21 @@ public class RetrofitController {
         });
     }
 
-    public void getIdealWeight(Context context, String sex, double height) {
-        CalculatorsRequest calculatorsRequest = new CalculatorsRequest(height, sex);
+    public void getIdealWeight(Context context, TextView result, String gender, double height) {
+        CalculatorsRequest calculatorsRequest = new CalculatorsRequest(height, gender);
         Call<CalculatorsResponse> c = client.idealWeight(calculatorsRequest);
         c.enqueue(new Callback<CalculatorsResponse>() {
+            @SuppressLint({"SetTextI18n", "DefaultLocale"})
             @Override
             public void onResponse(Call<CalculatorsResponse> call, Response<CalculatorsResponse> response) {
-                Toast.makeText(context, String.valueOf(response.body().getResult()), Toast.LENGTH_SHORT).show();
+                if (response.isSuccessful()) {
+                    result.setText(String.format("%.2f", response.body().getResult()) + " " + context.getString(R.string.kg));
+                }
             }
 
             @Override
             public void onFailure(Call<CalculatorsResponse> call, Throwable t) {
-                Toast.makeText(context, "LOX!!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, context.getText(R.string.on_failure), Toast.LENGTH_SHORT).show();
             }
         });
 

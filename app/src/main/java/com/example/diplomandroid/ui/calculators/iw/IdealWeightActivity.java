@@ -4,11 +4,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.diplomandroid.R;
-import com.example.diplomandroid.repository.retrofit.RetrofitController;
 
 public class IdealWeightActivity extends AppCompatActivity {
 
@@ -20,13 +23,21 @@ public class IdealWeightActivity extends AppCompatActivity {
     }
 
     private void getIdealWeight() {
-        final Button button = findViewById(R.id.idealWeightButton);
-        final EditText heightEditText = findViewById(R.id.idelWeightHeightEditText);
-        final EditText sexEditText = findViewById(R.id.idelWeightSexEditText);
-        button.setOnClickListener((View v) -> {
-            RetrofitController controller = new RetrofitController();
-            controller.getIdealWeight(this, sexEditText.getText().toString(),
-                    Double.parseDouble(heightEditText.getText().toString()));
+        final Button submitButton = findViewById(R.id.iwSubmitButton);
+        final EditText heightEditText = findViewById(R.id.iwHeightEditText);
+        TextView result = findViewById(R.id.iwResultLabel);
+        Spinner genderSpinner = findViewById(R.id.iwSpinner);
+        IdealWeightViewModel idealWeightViewModel = new ViewModelProvider(this,
+                ViewModelProvider.AndroidViewModelFactory.getInstance(this.getApplication())).get(IdealWeightViewModel.class);
+        submitButton.setOnClickListener((View v) -> {
+            String selected = genderSpinner.getSelectedItem().toString();
+            String validationResult = idealWeightViewModel.validateIwInput(this, selected, heightEditText);
+            if (validationResult.equals(getString(R.string.correct))) {
+                idealWeightViewModel.getIdealWeight(this, result, selected, heightEditText);
+            } else {
+                Toast.makeText(this, validationResult, Toast.LENGTH_SHORT).show();
+            }
+
         });
     }
 }
