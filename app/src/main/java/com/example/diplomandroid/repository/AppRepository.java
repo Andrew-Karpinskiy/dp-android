@@ -47,4 +47,15 @@ public class AppRepository {
     public String validateIwInput(Context context, String gender, EditText heightEditText) {
         return inputDataValidation.validateIwInput(context, gender, heightEditText);
     }
+
+    public void getDailyCaloriesAmount(Context context, TextView result, String gender, double weight, double height, double age,
+                                       String loadFactor) {
+        retrofit.getDailyCaloriesAmount(context, result, gender, weight, height, age, loadFactor);
+    }
+
+    public String validateDcaInput(Context context, String gender, EditText weightEditText, EditText heightEditText,
+                                   EditText ageEditText) {
+
+        return inputDataValidation.validateDcaInput(context, gender, weightEditText, heightEditText, ageEditText);
+    }
 }

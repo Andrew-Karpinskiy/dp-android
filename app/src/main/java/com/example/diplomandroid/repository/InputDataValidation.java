@@ -40,4 +40,32 @@ public class InputDataValidation {
             return context.getString(R.string.all_forms_empty);
         }
     }
+
+    public String validateDcaInput(Context context, String gender, EditText weightEditText, EditText heightEditText,
+                                   EditText ageEditText) {
+
+        if (!gender.equals(context.getString(R.string.not_selected)) && weightEditText.getText().length() != 0
+                && heightEditText.getText().length() != 0 && ageEditText.getText().length() != 0) {
+            return context.getString(R.string.correct);
+        }
+
+        if (gender.equals(context.getString(R.string.not_selected)) && weightEditText.getText().length() != 0
+                && heightEditText.getText().length() != 0 && ageEditText.getText().length() != 0) {
+            return context.getString(R.string.empty_gender);
+        } else if (!gender.equals(context.getString(R.string.not_selected)) && weightEditText.getText().length() == 0
+                && heightEditText.getText().length() != 0 && ageEditText.getText().length() != 0) {
+            return context.getString(R.string.empty_weight_form);
+        } else if (!gender.equals(context.getString(R.string.not_selected)) && weightEditText.getText().length() != 0
+                && heightEditText.getText().length() == 0 && ageEditText.getText().length() != 0) {
+            return context.getString(R.string.empty_height_form);
+        } else if (!gender.equals(context.getString(R.string.not_selected)) && weightEditText.getText().length() != 0
+                && heightEditText.getText().length() != 0 && ageEditText.getText().length() == 0) {
+            return context.getString(R.string.empty_age_form);
+        } else if (gender.equals(context.getString(R.string.not_selected)) && weightEditText.getText().length() == 0
+                && heightEditText.getText().length() == 0 && ageEditText.getText().length() == 0) {
+            return context.getString(R.string.all_forms_empty);
+        } else {
+            return context.getString(R.string.not_all_forms_empty);
+        }
+    }
 }

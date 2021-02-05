@@ -1,11 +1,11 @@
 package com.example.diplomandroid.repository.retrofit.request;
 
 public class CalculatorsRequest {
-    private String sex;
+    private String gender;
     private double weight;
     private double height;
     private double age;
-    private int loadFactor;
+    private String loadFactor;
 
     public CalculatorsRequest(double weight) {
         this.weight = weight;
@@ -16,13 +16,13 @@ public class CalculatorsRequest {
         this.height = height;
     }
 
-    public CalculatorsRequest(double height, String sex) {
+    public CalculatorsRequest(double height, String gender) {
         this.height = height;
-        this.sex = sex;
+        this.gender = gender;
     }
 
-    public CalculatorsRequest(String sex, double weight, double height, double age, int loadFactor) {
-        this.sex = sex;
+    public CalculatorsRequest(String gender, double weight, double height, double age, String loadFactor) {
+        this.gender = gender;
         this.weight = weight;
         this.height = height;
         this.age = age;
@@ -45,12 +45,12 @@ public class CalculatorsRequest {
         this.height = height;
     }
 
-    public String getSex() {
-        return sex;
+    public String getGender() {
+        return gender;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public double getAge() {
@@ -61,11 +61,11 @@ public class CalculatorsRequest {
         this.age = age;
     }
 
-    public int getLoadFactor() {
+    public String getLoadFactor() {
         return loadFactor;
     }
 
-    public void setLoadFactor(int loadFactor) {
+    public void setLoadFactor(String loadFactor) {
         this.loadFactor = loadFactor;
     }
 }

@@ -4,11 +4,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.diplomandroid.R;
-import com.example.diplomandroid.repository.retrofit.RetrofitController;
 
 public class DailyCaloriesAmountActivity extends AppCompatActivity {
 
@@ -20,20 +23,30 @@ public class DailyCaloriesAmountActivity extends AppCompatActivity {
     }
 
     private void getDailyCaloriesAmount() {
-        final Button button = findViewById(R.id.dailyCaloriesButton);
-        final EditText sexEditText = findViewById(R.id.dailyCaloriesSexEditText);
-        final EditText weightEditText = findViewById(R.id.dailyCaloriesWeightEditText);
-        final EditText heightEditText = findViewById(R.id.dailyCaloriesHeightEditText);
-        final EditText ageEditText = findViewById(R.id.dailyCaloriesAgeEditText);
-        final EditText loadEditText = findViewById(R.id.dailyCaloriesLoadEditText);
+        DailyCaloriesAmountViewModel dailyCaloriesAmountViewModel = new ViewModelProvider(this,
+                ViewModelProvider.AndroidViewModelFactory.getInstance(this.getApplication())).get(DailyCaloriesAmountViewModel.class);
 
-        button.setOnClickListener((View v) -> {
-            RetrofitController controller = new RetrofitController();
-            controller.getDailyCaloriesAmount(this, sexEditText.getText().toString(),
-                    Double.parseDouble(weightEditText.getText().toString()),
-                    Double.parseDouble(heightEditText.getText().toString()),
-                    Double.parseDouble(ageEditText.getText().toString()),
-                    Integer.parseInt(loadEditText.getText().toString()));
+        final Button submitButton = findViewById(R.id.dcaSubmitButton);
+        Spinner genderSpinner = findViewById(R.id.dcaGenderSpinner);
+        final EditText weightEditText = findViewById(R.id.dcaWeightEditText);
+        final EditText heightEditText = findViewById(R.id.dcaHeightEditText);
+        final EditText ageEditText = findViewById(R.id.dcaAgeEditText);
+        Spinner rateSpinner = findViewById(R.id.dcaRateSpinner);
+        TextView result = findViewById(R.id.dcaResultLabel);
+
+        submitButton.setOnClickListener((View v) -> {
+            String selectedGender = genderSpinner.getSelectedItem().toString();
+            String selectedRate = rateSpinner.getSelectedItem().toString();
+
+            String validationResult = dailyCaloriesAmountViewModel.validateInput(this, selectedGender,
+                    weightEditText, heightEditText, ageEditText);
+
+            if (validationResult.equals(getString(R.string.correct))) {
+                dailyCaloriesAmountViewModel.getDailyCaloriesAmount(this, result, selectedGender,
+                        weightEditText, heightEditText, ageEditText, selectedRate);
+            } else {
+                Toast.makeText(this, validationResult, Toast.LENGTH_SHORT).show();
+            }
         });
     }
 }

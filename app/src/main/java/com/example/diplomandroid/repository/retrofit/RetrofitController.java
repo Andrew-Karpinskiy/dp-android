@@ -177,19 +177,22 @@ public class RetrofitController {
 
     }
 
-    public void getDailyCaloriesAmount(Context context, String sex, double weight, double height, double age,
-                                       int load) {
-        CalculatorsRequest calculatorsRequest = new CalculatorsRequest(sex, weight, height, age, load);
+    public void getDailyCaloriesAmount(Context context, TextView result, String gender, double weight, double height, double age,
+                                       String loadFactor) {
+        CalculatorsRequest calculatorsRequest = new CalculatorsRequest(gender, weight, height, age, loadFactor);
         Call<CalculatorsResponse> c = client.dailyCalories(calculatorsRequest);
         c.enqueue(new Callback<CalculatorsResponse>() {
+            @SuppressLint({"DefaultLocale", "SetTextI18n"})
             @Override
             public void onResponse(Call<CalculatorsResponse> call, Response<CalculatorsResponse> response) {
-                Toast.makeText(context, String.valueOf(response.body().getResult()), Toast.LENGTH_SHORT).show();
+                if (response.isSuccessful()) {
+                    result.setText(String.format("%.0f", response.body().getResult()) + " " + context.getString(R.string.calories));
+                }
             }
 
             @Override
             public void onFailure(Call<CalculatorsResponse> call, Throwable t) {
-                Toast.makeText(context, "LOX!!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, context.getText(R.string.on_failure), Toast.LENGTH_SHORT).show();
             }
         });
 
