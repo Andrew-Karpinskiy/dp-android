@@ -16,7 +16,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="n">
-        <activity android:name=".ui.band.BandActivity"></activity>
+        <activity android:name=".ui.journals.weight.WeightJournalActivity"></activity>
+        <activity android:name=".ui.journals.steps.StepsJournalActivity" />
+        <activity android:name=".ui.journals.distance.DistanceJournalActivity" />
+        <activity android:name=".ui.journals.calories.CaloriesJournalActivity" />
+        <activity android:name=".ui.band.BandActivity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"

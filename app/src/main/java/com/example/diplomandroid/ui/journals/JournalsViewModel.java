@@ -1,18 +1,26 @@
 package com.example.diplomandroid.ui.journals;
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
+import android.app.Application;
 
-public class JournalsViewModel extends ViewModel {
-    private final MutableLiveData<String> mText;
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 
-    public JournalsViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is journals fragment");
+import com.example.diplomandroid.R;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class JournalsViewModel extends AndroidViewModel {
+    public JournalsViewModel(@NonNull Application application) {
+        super(application);
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public List<Journals> initData() {
+        List<Journals> data = new ArrayList<>();
+        data.add(new Journals(R.drawable.ic_wj, R.string.weight_journal_name, R.string.weight));
+        data.add(new Journals(R.drawable.ic_dj, R.string.distance_journal_name, R.string.distance));
+        data.add(new Journals(R.drawable.ic_sj, R.string.steps_journal_name, R.string.steps));
+        data.add(new Journals(R.drawable.ic_cj, R.string.calories_journal_name, R.string.calories));
+        return data;
     }
 }

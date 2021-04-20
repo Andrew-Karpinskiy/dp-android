@@ -18,6 +18,11 @@
     <string name="dwa_calculator_name">Daily water amount</string>
     <string name="iw_calculator_name">Ideal weight</string>
 
+    <string name="distance_journal_name">Distance journal</string>
+    <string name="steps_journal_name">Steps journal</string>
+    <string name="calories_journal_name">Calories journal</string>
+    <string name="weight_journal_name">Weight journal</string>
+
     <string name="mac_address">Mi Band Address:</string>
     <string name="connect">Connect</string>
     <string name="disconnect">Disconnect</string>
