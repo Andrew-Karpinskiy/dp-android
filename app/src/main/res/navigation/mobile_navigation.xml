@@ -24,4 +24,9 @@
         android:name="com.example.diplomandroid.ui.settings.SettingsFragment"
         android:label="@string/menu_settings"
         tools:layout="@layout/fragment_settings" />
+    <activity
+        android:id="@+id/nav_band"
+        android:name="com.example.diplomandroid.ui.band.BandActivity"
+        android:label="activity_band"
+        tools:layout="@layout/activity_band" />
 </navigation>

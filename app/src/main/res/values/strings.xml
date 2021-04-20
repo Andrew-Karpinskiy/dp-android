@@ -11,11 +11,23 @@
     <string name="menu_calculators">Calculators</string>
     <string name="menu_settings">Settings</string>
     <string name="menu_journals">Journals</string>
+    <string name="menu_band">Fitness bracelet</string>
 
     <string name="bmi_calculator_name">Body mass index</string>
     <string name="dca_calculator_name">Daily calories amount</string>
     <string name="dwa_calculator_name">Daily water amount</string>
     <string name="iw_calculator_name">Ideal weight</string>
+
+    <string name="mac_address">Mi Band Address:</string>
+    <string name="connect">Connect</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="bluetooth_status">Bluetooth status</string>
+    <string name="steps">Steps</string>
+    <string name="distance">Distance in meters</string>
+    <string name="calories_amount">Calories</string>
+    <string name="connected">Connected</string>
+    <string name="not_connected">Not connected</string>
+    <string name="save">Save</string>
 
     <string name="bmi_calculator_description">Calculates body mass index</string>
     <string name="dca_calculator_description">Calculates your daily calorie requirement</string>
