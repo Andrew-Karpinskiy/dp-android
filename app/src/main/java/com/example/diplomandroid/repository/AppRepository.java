@@ -59,19 +59,19 @@ public class AppRepository {
         return inputDataValidation.validateDcaInput(context, gender, weightEditText, heightEditText, ageEditText);
     }
 
-    public void saveSteps(Context context, Integer stepsAmount) {
-        retrofit.saveStepsCall(context, stepsAmount);
+    public void saveSteps(Context context, Integer stepsAmount, String date) {
+        retrofit.saveStepsCall(context, stepsAmount, date);
     }
 
-    public void saveDistance(Context context, Integer distanceAmount) {
-        retrofit.saveDistanceCall(context, distanceAmount);
+    public void saveDistance(Context context, Integer distanceAmount, String date) {
+        retrofit.saveDistanceCall(context, distanceAmount, date);
     }
 
-    public void saveCalories(Context context, Integer caloriesAmount) {
-        retrofit.saveCaloriesCall(context, caloriesAmount);
+    public void saveCalories(Context context, Integer caloriesAmount, String date) {
+        retrofit.saveCaloriesCall(context, caloriesAmount, date);
     }
 
-    public void saveWeight(Context context, Double weight) {
-        retrofit.saveWeightCall(context, weight);
+    public void saveWeight(Context context, Double weight, String date) {
+        retrofit.saveWeightCall(context, weight, date);
     }
 }

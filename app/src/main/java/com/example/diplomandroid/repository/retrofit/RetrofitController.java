@@ -194,8 +194,8 @@ public class RetrofitController {
         });
     }
 
-    public void saveStepsCall(Context context, Integer stepsAmount) {
-        JournalSaveRequest journalSaveRequest = new JournalSaveRequest(String.valueOf(stepsAmount));
+    public void saveStepsCall(Context context, Integer stepsAmount, String date) {
+        JournalSaveRequest journalSaveRequest = new JournalSaveRequest(String.valueOf(stepsAmount), date);
         Call<JournalResponse> c = client.saveSteps(journalSaveRequest);
         c.enqueue(new Callback<JournalResponse>() {
             @Override
@@ -210,8 +210,8 @@ public class RetrofitController {
         });
     }
 
-    public void saveCaloriesCall(Context context, Integer caloriesAmount) {
-        JournalSaveRequest journalSaveRequest = new JournalSaveRequest(String.valueOf(caloriesAmount));
+    public void saveCaloriesCall(Context context, Integer caloriesAmount, String date) {
+        JournalSaveRequest journalSaveRequest = new JournalSaveRequest(String.valueOf(caloriesAmount), date);
         Call<JournalResponse> c = client.saveCalories(journalSaveRequest);
         c.enqueue(new Callback<JournalResponse>() {
             @Override
@@ -226,8 +226,8 @@ public class RetrofitController {
         });
     }
 
-    public void saveDistanceCall(Context context, Integer distanceAmount) {
-        JournalSaveRequest journalSaveRequest = new JournalSaveRequest(String.valueOf(distanceAmount));
+    public void saveDistanceCall(Context context, Integer distanceAmount, String date) {
+        JournalSaveRequest journalSaveRequest = new JournalSaveRequest(String.valueOf(distanceAmount), date);
         Call<JournalResponse> c = client.saveDistance(journalSaveRequest);
         c.enqueue(new Callback<JournalResponse>() {
             @Override
@@ -243,8 +243,8 @@ public class RetrofitController {
 
     }
 
-    public void saveWeightCall(Context context, Double weight) {
-        JournalSaveRequest journalSaveRequest = new JournalSaveRequest(String.valueOf(weight));
+    public void saveWeightCall(Context context, Double weight, String date) {
+        JournalSaveRequest journalSaveRequest = new JournalSaveRequest(String.valueOf(weight), date);
         Call<JournalResponse> c = client.saveWeight(journalSaveRequest);
         c.enqueue(new Callback<JournalResponse>() {
             @Override
