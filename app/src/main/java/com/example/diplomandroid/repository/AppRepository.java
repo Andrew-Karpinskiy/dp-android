@@ -58,4 +58,20 @@ public class AppRepository {
 
         return inputDataValidation.validateDcaInput(context, gender, weightEditText, heightEditText, ageEditText);
     }
+
+    public void saveSteps(Context context, Integer stepsAmount) {
+        retrofit.saveStepsCall(context, stepsAmount);
+    }
+
+    public void saveDistance(Context context, Integer distanceAmount) {
+        retrofit.saveDistanceCall(context, distanceAmount);
+    }
+
+    public void saveCalories(Context context, Integer caloriesAmount) {
+        retrofit.saveCaloriesCall(context, caloriesAmount);
+    }
+
+    public void saveWeight(Context context, Double weight) {
+        retrofit.saveWeightCall(context, weight);
+    }
 }

@@ -2,9 +2,11 @@ package com.example.diplomandroid.repository.retrofit;
 
 import com.example.diplomandroid.repository.retrofit.request.AuthRequest;
 import com.example.diplomandroid.repository.retrofit.request.CalculatorsRequest;
+import com.example.diplomandroid.repository.retrofit.request.JournalSaveRequest;
 import com.example.diplomandroid.repository.retrofit.request.RegistrationRequest;
 import com.example.diplomandroid.repository.retrofit.response.AuthResponse;
 import com.example.diplomandroid.repository.retrofit.response.CalculatorsResponse;
+import com.example.diplomandroid.repository.retrofit.response.JournalResponse;
 import com.example.diplomandroid.repository.retrofit.response.SimpleResponse;
 
 import retrofit2.Call;
@@ -30,6 +32,19 @@ public interface RetrofitClient {
 
     @POST("/calculators/dcm")
     Call<CalculatorsResponse> dailyCalories(@Body CalculatorsRequest calculatorsRequest);
+
+    @POST("/journals/steps")
+    Call<JournalResponse> saveSteps(@Body JournalSaveRequest journalSaveRequest);
+
+    @POST("/journals/calories")
+    Call<JournalResponse> saveCalories(@Body JournalSaveRequest journalSaveRequest);
+
+    @POST("/journals/distance")
+    Call<JournalResponse> saveDistance(@Body JournalSaveRequest journalSaveRequest);
+
+    @POST("/journals/weight")
+    Call<JournalResponse> saveWeight(@Body JournalSaveRequest journalSaveRequest);
+
 
 //    @Headers("Content-Type:application/json; charset=UTF-8")
 //    @GET("/user/get")

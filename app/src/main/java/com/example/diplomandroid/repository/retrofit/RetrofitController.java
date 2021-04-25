@@ -12,9 +12,11 @@ import com.example.diplomandroid.R;
 import com.example.diplomandroid.activity.LoginActivity;
 import com.example.diplomandroid.repository.retrofit.request.AuthRequest;
 import com.example.diplomandroid.repository.retrofit.request.CalculatorsRequest;
+import com.example.diplomandroid.repository.retrofit.request.JournalSaveRequest;
 import com.example.diplomandroid.repository.retrofit.request.RegistrationRequest;
 import com.example.diplomandroid.repository.retrofit.response.AuthResponse;
 import com.example.diplomandroid.repository.retrofit.response.CalculatorsResponse;
+import com.example.diplomandroid.repository.retrofit.response.JournalResponse;
 import com.example.diplomandroid.repository.retrofit.response.SimpleResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -36,7 +38,6 @@ public class RetrofitController {
         client = buildRetrofit().create(RetrofitClient.class);
     }
 
-    //Настройка Retrofit
     private Retrofit buildRetrofit() {
         Gson gson = new GsonBuilder().serializeNulls().create();
         return new Retrofit.Builder()
@@ -61,7 +62,6 @@ public class RetrofitController {
                 }
 
             }
-
             @Override
             public void onFailure(Call<SimpleResponse> call, Throwable t) {
                 Toast.makeText(context, "LOX!!!", Toast.LENGTH_SHORT).show();
@@ -130,7 +130,6 @@ public class RetrofitController {
                     }
                 }
             }
-
             @Override
             public void onFailure(@NotNull Call<CalculatorsResponse> call, @NotNull Throwable t) {
                 Toast.makeText(context, context.getText(R.string.on_failure), Toast.LENGTH_SHORT).show();
@@ -149,7 +148,6 @@ public class RetrofitController {
                     result.setText(String.format("%.2f", response.body().getResult()) + " " + context.getString(R.string.ml));
                 }
             }
-
             @Override
             public void onFailure(@NotNull Call<CalculatorsResponse> call, @NotNull Throwable t) {
                 Toast.makeText(context, context.getText(R.string.on_failure), Toast.LENGTH_SHORT).show();
@@ -168,7 +166,6 @@ public class RetrofitController {
                     result.setText(String.format("%.2f", response.body().getResult()) + " " + context.getString(R.string.kg));
                 }
             }
-
             @Override
             public void onFailure(Call<CalculatorsResponse> call, Throwable t) {
                 Toast.makeText(context, context.getText(R.string.on_failure), Toast.LENGTH_SHORT).show();
@@ -195,9 +192,73 @@ public class RetrofitController {
                 Toast.makeText(context, context.getText(R.string.on_failure), Toast.LENGTH_SHORT).show();
             }
         });
+    }
 
+    public void saveStepsCall(Context context, Integer stepsAmount) {
+        JournalSaveRequest journalSaveRequest = new JournalSaveRequest(String.valueOf(stepsAmount));
+        Call<JournalResponse> c = client.saveSteps(journalSaveRequest);
+        c.enqueue(new Callback<JournalResponse>() {
+            @Override
+            public void onResponse(Call<JournalResponse> call, Response<JournalResponse> response) {
+                //Toast.makeText(context, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<JournalResponse> call, Throwable t) {
+                Toast.makeText(context, context.getText(R.string.on_failure), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void saveCaloriesCall(Context context, Integer caloriesAmount) {
+        JournalSaveRequest journalSaveRequest = new JournalSaveRequest(String.valueOf(caloriesAmount));
+        Call<JournalResponse> c = client.saveCalories(journalSaveRequest);
+        c.enqueue(new Callback<JournalResponse>() {
+            @Override
+            public void onResponse(Call<JournalResponse> call, Response<JournalResponse> response) {
+                // Toast.makeText(context, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<JournalResponse> call, Throwable t) {
+                Toast.makeText(context, context.getText(R.string.on_failure), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void saveDistanceCall(Context context, Integer distanceAmount) {
+        JournalSaveRequest journalSaveRequest = new JournalSaveRequest(String.valueOf(distanceAmount));
+        Call<JournalResponse> c = client.saveDistance(journalSaveRequest);
+        c.enqueue(new Callback<JournalResponse>() {
+            @Override
+            public void onResponse(Call<JournalResponse> call, Response<JournalResponse> response) {
+                // Toast.makeText(context, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<JournalResponse> call, Throwable t) {
+                Toast.makeText(context, context.getText(R.string.on_failure), Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
+
+    public void saveWeightCall(Context context, Double weight) {
+        JournalSaveRequest journalSaveRequest = new JournalSaveRequest(String.valueOf(weight));
+        Call<JournalResponse> c = client.saveWeight(journalSaveRequest);
+        c.enqueue(new Callback<JournalResponse>() {
+            @Override
+            public void onResponse(Call<JournalResponse> call, Response<JournalResponse> response) {
+                //Toast.makeText(context, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<JournalResponse> call, Throwable t) {
+                Toast.makeText(context, context.getText(R.string.on_failure), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+}
 
 //    public void testAuth(Context context) {
 //        Call<ApiResponse> c = client.testAuth(Token.getToken());
@@ -228,5 +289,3 @@ public class RetrofitController {
 //            }
 //        });
 //    }
-}
-

@@ -14,7 +14,7 @@ public class SaveDialog extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
         final String[] catNamesArray = {"Distance", "Steps", "Calories"};
-        final boolean[] checkedItemsArray = {false, true, false};
+        final boolean[] checkedItemsArray = {true, true, true};
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Choose what to save")
@@ -22,18 +22,7 @@ public class SaveDialog extends DialogFragment {
                         (dialog, which, isChecked) -> checkedItemsArray[which] = isChecked)
                 .setPositiveButton("Save",
                         (dialog, id) -> {
-//                            StringBuilder state = new StringBuilder();
-//                            for (int i = 0; i < catNamesArray.length; i++) {
-//                                state.append(catNamesArray[i]);
-//                                if (checkedItemsArray[i])
-//                                    state.append(" выбран\n");
-//                                else
-//                                    state.append(" не выбран\n");
-//                            }
-//                            Toast.makeText(getActivity(),
-//                                    state.toString(), Toast.LENGTH_LONG)
-//                                    .show();
-                            ((BandActivity) getActivity()).saveData();
+                            ((BandActivity) getActivity()).saveData(checkedItemsArray);
                         })
 
                 .setNegativeButton("Back",
