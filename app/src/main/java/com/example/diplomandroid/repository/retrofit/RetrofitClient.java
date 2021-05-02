@@ -45,6 +45,18 @@ public interface RetrofitClient {
     @POST("/journals/weight")
     Call<JournalResponse> saveWeight(@Body JournalSaveRequest journalSaveRequest);
 
+    @POST("/journals/get/steps")
+    Call<JournalResponse> getSteps(@Body JournalSaveRequest journalSaveRequest);
+
+    @POST("/journals/get/weight")
+    Call<JournalResponse> getWeight(@Body JournalSaveRequest journalSaveRequest);
+
+    @POST("/journals/get/distance")
+    Call<JournalResponse> getDistance(@Body JournalSaveRequest journalSaveRequest);
+
+    @POST("/journals/get/calories")
+    Call<JournalResponse> getCalories(@Body JournalSaveRequest journalSaveRequest);
+
 
 //    @Headers("Content-Type:application/json; charset=UTF-8")
 //    @GET("/user/get")

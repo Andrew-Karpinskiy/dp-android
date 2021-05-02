@@ -20,4 +20,8 @@ public class StepsJournalViewModel extends AndroidViewModel {
     public void saveSteps(Context context, Integer stepsAmount, String date) {
         repository.saveSteps(context, stepsAmount, date);
     }
+
+    public void getSteps(Context context, String date) {
+        repository.getSteps(context, date);
+    }
 }

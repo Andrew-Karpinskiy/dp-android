@@ -9,6 +9,10 @@ public class JournalSaveRequest {
         this.date = date;
     }
 
+    public JournalSaveRequest(String date) {
+        this.date = date;
+    }
+
     public String getAmount() {
         return amount;
     }

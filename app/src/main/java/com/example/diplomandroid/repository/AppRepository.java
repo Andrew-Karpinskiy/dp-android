@@ -74,4 +74,8 @@ public class AppRepository {
     public void saveWeight(Context context, Double weight, String date) {
         retrofit.saveWeightCall(context, weight, date);
     }
+
+    public void getSteps(Context context, String date) {
+        retrofit.getSteps(context, date);
+    }
 }

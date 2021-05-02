@@ -3,6 +3,7 @@ package com.example.diplomandroid.repository.retrofit;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Message;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ import com.example.diplomandroid.repository.retrofit.response.AuthResponse;
 import com.example.diplomandroid.repository.retrofit.response.CalculatorsResponse;
 import com.example.diplomandroid.repository.retrofit.response.JournalResponse;
 import com.example.diplomandroid.repository.retrofit.response.SimpleResponse;
+import com.example.diplomandroid.ui.journals.steps.StepsJournalActivity;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -250,6 +252,26 @@ public class RetrofitController {
             @Override
             public void onResponse(Call<JournalResponse> call, Response<JournalResponse> response) {
                 //Toast.makeText(context, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<JournalResponse> call, Throwable t) {
+                Toast.makeText(context, context.getText(R.string.on_failure), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void getSteps(Context context, String startDate) {
+        JournalSaveRequest journalSaveRequest = new JournalSaveRequest(startDate);
+        Call<JournalResponse> c = client.getSteps(journalSaveRequest);
+        c.enqueue(new Callback<JournalResponse>() {
+            @Override
+            public void onResponse(Call<JournalResponse> call, Response<JournalResponse> response) {
+                StepsJournalActivity.journalResponses = response.body().getJournal();
+                Message msg = StepsJournalActivity.handler.obtainMessage(601);
+                msg.sendToTarget();
+                //Map<String, String> journalResponses = response.body().getJournal();
+                //StepsJournalActivity.journalMap = response.body().getJournal();
             }
 
             @Override
