@@ -71,11 +71,23 @@ public class AppRepository {
         retrofit.saveCaloriesCall(context, caloriesAmount, date);
     }
 
-    public void saveWeight(Context context, Double weight, String date) {
+    public void saveWeight(Context context, Integer weight, String date) {
         retrofit.saveWeightCall(context, weight, date);
     }
 
     public void getSteps(Context context, String date) {
         retrofit.getSteps(context, date);
+    }
+
+    public void getWeight(Context context, String date) {
+        retrofit.getWeight(context, date);
+    }
+
+    public void getCalories(Context context, String date) {
+        retrofit.getCalories(context, date);
+    }
+
+    public void getDistance(Context context, String date) {
+        retrofit.getDistance(context, date);
     }
 }

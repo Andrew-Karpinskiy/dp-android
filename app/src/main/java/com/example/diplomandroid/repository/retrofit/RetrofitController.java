@@ -3,7 +3,6 @@ package com.example.diplomandroid.repository.retrofit;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Message;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,7 +18,10 @@ import com.example.diplomandroid.repository.retrofit.response.AuthResponse;
 import com.example.diplomandroid.repository.retrofit.response.CalculatorsResponse;
 import com.example.diplomandroid.repository.retrofit.response.JournalResponse;
 import com.example.diplomandroid.repository.retrofit.response.SimpleResponse;
+import com.example.diplomandroid.ui.journals.calories.CaloriesJournalActivity;
+import com.example.diplomandroid.ui.journals.distance.DistanceJournalActivity;
 import com.example.diplomandroid.ui.journals.steps.StepsJournalActivity;
+import com.example.diplomandroid.ui.journals.weight.WeightJournalActivity;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -245,7 +247,7 @@ public class RetrofitController {
 
     }
 
-    public void saveWeightCall(Context context, Double weight, String date) {
+    public void saveWeightCall(Context context, Integer weight, String date) {
         JournalSaveRequest journalSaveRequest = new JournalSaveRequest(String.valueOf(weight), date);
         Call<JournalResponse> c = client.saveWeight(journalSaveRequest);
         c.enqueue(new Callback<JournalResponse>() {
@@ -268,10 +270,62 @@ public class RetrofitController {
             @Override
             public void onResponse(Call<JournalResponse> call, Response<JournalResponse> response) {
                 StepsJournalActivity.journalResponses = response.body().getJournal();
-                Message msg = StepsJournalActivity.handler.obtainMessage(601);
-                msg.sendToTarget();
-                //Map<String, String> journalResponses = response.body().getJournal();
-                //StepsJournalActivity.journalMap = response.body().getJournal();
+                Intent intent = new Intent(context, StepsJournalActivity.class);
+                context.startActivity(intent);
+            }
+
+            @Override
+            public void onFailure(Call<JournalResponse> call, Throwable t) {
+                Toast.makeText(context, context.getText(R.string.on_failure), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void getWeight(Context context, String startDate) {
+        JournalSaveRequest journalSaveRequest = new JournalSaveRequest(startDate);
+        Call<JournalResponse> c = client.getWeight(journalSaveRequest);
+        c.enqueue(new Callback<JournalResponse>() {
+            @Override
+            public void onResponse(Call<JournalResponse> call, Response<JournalResponse> response) {
+                WeightJournalActivity.weightJournal = response.body().getJournal();
+                Intent intent = new Intent(context, WeightJournalActivity.class);
+                context.startActivity(intent);
+            }
+
+            @Override
+            public void onFailure(Call<JournalResponse> call, Throwable t) {
+                Toast.makeText(context, context.getText(R.string.on_failure), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void getCalories(Context context, String startDate) {
+        JournalSaveRequest journalSaveRequest = new JournalSaveRequest(startDate);
+        Call<JournalResponse> c = client.getCalories(journalSaveRequest);
+        c.enqueue(new Callback<JournalResponse>() {
+            @Override
+            public void onResponse(Call<JournalResponse> call, Response<JournalResponse> response) {
+                CaloriesJournalActivity.caloriesJournal = response.body().getJournal();
+                Intent intent = new Intent(context, CaloriesJournalActivity.class);
+                context.startActivity(intent);
+            }
+
+            @Override
+            public void onFailure(Call<JournalResponse> call, Throwable t) {
+                Toast.makeText(context, context.getText(R.string.on_failure), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void getDistance(Context context, String startDate) {
+        JournalSaveRequest journalSaveRequest = new JournalSaveRequest(startDate);
+        Call<JournalResponse> c = client.getDistance(journalSaveRequest);
+        c.enqueue(new Callback<JournalResponse>() {
+            @Override
+            public void onResponse(Call<JournalResponse> call, Response<JournalResponse> response) {
+                DistanceJournalActivity.distanceJournal = response.body().getJournal();
+                Intent intent = new Intent(context, DistanceJournalActivity.class);
+                context.startActivity(intent);
             }
 
             @Override

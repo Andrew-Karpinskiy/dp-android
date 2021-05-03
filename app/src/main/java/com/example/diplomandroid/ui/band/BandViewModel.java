@@ -57,7 +57,7 @@ public class BandViewModel extends AndroidViewModel {
         repository.saveCalories(context, caloriesAmount, new Date().toString());
     }
 
-    public void saveWeight(Context context, Double weight) {
+    public void saveWeight(Context context, Integer weight) {
         repository.saveWeight(context, weight, new Date().toString());
     }
 }

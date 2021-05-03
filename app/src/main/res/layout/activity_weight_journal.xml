@@ -17,28 +17,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="10dp" />
+            app:layout_constraintGuide_begin="0dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/wjGuideline2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_end="10dp" />
+            app:layout_constraintGuide_end="0dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/wjGuideline3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_begin="10dp" />
+            app:layout_constraintGuide_begin="0dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/wjGuideline4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_end="10dp" />
+            app:layout_constraintGuide_end="0dp" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/wjConstraintLayout"
@@ -125,12 +125,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_end="586dp" />
+            app:layout_constraintGuide_end="618dp" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="10dp"
             android:background="@color/colorCardBackGround"
             app:layout_constraintBottom_toTopOf="@+id/wjGuideline2"
             app:layout_constraintEnd_toStartOf="@+id/wjGuideline4"
