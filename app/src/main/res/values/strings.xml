@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">Diplom Android</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
+    <string name="title_activity_main" translatable="false">MainActivity</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="nav_header_title" translatable="false">Android Studio</string>
+    <string name="nav_header_subtitle" translatable="false">android.studio@android.com</string>
+    <string name="nav_header_desc" translatable="false">Navigation header</string>
 
     <string name="menu_profile">Profile</string>
     <string name="menu_calculators">Calculators</string>
@@ -36,16 +36,16 @@
 
     <string name="bmi_calculator_description">Calculates body mass index</string>
     <string name="dca_calculator_description">Calculates your daily calorie requirement</string>
-    <string name="dwa_calculator_description">Calculates yor daily water requirement</string>
+    <string name="dwa_calculator_description">Calculate your daily water requirement</string>
     <string name="iw_calculator_description">Calculates the ideal weight for height</string>
 
-    <string name="number_severe_underweight">0 – 15</string>
-    <string name="number_underweight">16 – 18.5</string>
-    <string name="number_norm">18.5 – 25</string>
-    <string name="number_overweight">25 – 30</string>
-    <string name="number_obesity">30 – 35</string>
-    <string name="number_acute_obesity">35 – 40</string>
-    <string name="number_very_severe_obesity">40 – ∞</string>
+    <string name="number_severe_underweight" translatable="false">0 – 15</string>
+    <string name="number_underweight" translatable="false">16 – 18.5</string>
+    <string name="number_norm" translatable="false">18.5 – 25</string>
+    <string name="number_overweight" translatable="false">25 – 30</string>
+    <string name="number_obesity" translatable="false">30 – 35</string>
+    <string name="number_acute_obesity" translatable="false">35 – 40</string>
+    <string name="number_very_severe_obesity" translatable="false">40 – ∞</string>
     <string name="severe_underweight">Severe underweight</string>
     <string name="underweight">Underweight</string>
     <string name="norm">Norm</string>
@@ -79,9 +79,9 @@
     <string name="gender">Gender</string>
     <string name="activity_rates">Activity rates</string>
     <string name="age">Age</string>
-    <string name="kg">kg</string>
-    <string name="cm">cm</string>
-    <string name="ml">ml</string>
+    <string name="kg" translatable="false">kg</string>
+    <string name="cm" translatable="false">cm</string>
+    <string name="ml" translatable="false">ml</string>
     <string name="calories">calories</string>
     <string name="years">years</string>
     <string name="calculate">Calculate</string>
@@ -96,6 +96,6 @@
     <string name="on_failure">Error</string>
     <string name="pls_input_amount">Input amount:</string>
     <string name="pls_choose_date">Choose a date:</string>
-    <string name="ok">OK</string>
+    <string name="ok" translatable="false">OK</string>
     <string name="cancel">Cancel</string>
 </resources>
