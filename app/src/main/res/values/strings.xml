@@ -28,7 +28,7 @@
     <string name="disconnect">Disconnect</string>
     <string name="bluetooth_status">Bluetooth status</string>
     <string name="steps">Steps</string>
-    <string name="distance">Distance in meters</string>
+    <string name="distance_meters">Distance in meters</string>
     <string name="calories_amount">Calories</string>
     <string name="connected">Connected</string>
     <string name="not_connected">Not connected</string>
@@ -39,6 +39,8 @@
     <string name="dwa_calculator_description">Calculate your daily water requirement</string>
     <string name="iw_calculator_description">Calculates the ideal weight for height</string>
 
+    <string name="number_seven" translatable="false">7</string>
+    <string name="number_thirty" translatable="false">30</string>
     <string name="number_severe_underweight" translatable="false">0 – 15</string>
     <string name="number_underweight" translatable="false">16 – 18.5</string>
     <string name="number_norm" translatable="false">18.5 – 25</string>
@@ -92,10 +94,17 @@
     <string name="empty_gender">Please choose gender</string>
     <string name="all_forms_empty">Please fill out the forms</string>
     <string name="not_all_forms_empty">Please fill the rest of the forms</string>
+    <string name="mac_address_empty">Please input Mac address</string>
     <string name="correct">Correct</string>
     <string name="on_failure">Error</string>
     <string name="pls_input_amount">Input amount:</string>
     <string name="pls_choose_date">Choose a date:</string>
     <string name="ok" translatable="false">OK</string>
     <string name="cancel">Cancel</string>
+    <string name="range">Range</string>
+    <string name="back">Back</string>
+    <string name="choose_what_save">Choose what to save</string>
+    <string name="distance">Distance</string>
+    <string name="select_range">Select Range</string>
+    <string name="new_entity">New Entity</string>
 </resources>

@@ -10,7 +10,7 @@
     <string name="iw_calculator_name">Идеальный вес</string>
     <string name="steps">Шаги</string>
     <string name="calories_amount">Калории</string>
-    <string name="distance">Расстояние в метрах</string>
+    <string name="distance_meters">Расстояние в метрах</string>
     <string name="connected">Подключено</string>
     <string name="not_connected">Не подключено</string>
     <string name="save">Сохранить</string>
@@ -59,4 +59,11 @@
     <string name="empty_gender">Пожалуйста, введите пол</string>
     <string name="all_forms_empty">Пожалуйста, заполните формы</string>
     <string name="not_all_forms_empty">Пожалуйста, заполните остальные формы</string>
+    <string name="back">Назад</string>
+    <string name="range">Диапазон</string>
+    <string name="choose_what_save">Выберите что сохранить</string>
+    <string name="select_range">Выбрать диапазон</string>
+    <string name="new_entity">Новая запись</string>
+    <string name="mac_address_empty">Пожалуйста, введите Mac-адрес</string>
+    <string name="distance">Расстояние</string>
 </resources>

@@ -19,7 +19,7 @@
     <string name="disconnect">Відключити</string>
     <string name="bluetooth_status">Bluetooth статус</string>
     <string name="steps">Кроки</string>
-    <string name="distance">Відстань в метрах</string>
+    <string name="distance_meters">Відстань в метрах</string>
     <string name="calories_amount">Калорії</string>
     <string name="connected">Підключено</string>
     <string name="not_connected">Не підключено</string>
@@ -59,4 +59,11 @@
     <string name="pls_input_amount">Введіть кількість:</string>
     <string name="pls_choose_date">Виберіть дату:</string>
     <string name="cancel">Закрити</string>
+    <string name="back">Назад</string>
+    <string name="range">Діапазон</string>
+    <string name="choose_what_save">Виберіть що зберегти</string>
+    <string name="select_range">Виберіть діапазон</string>
+    <string name="new_entity">Новий запис</string>
+    <string name="mac_address_empty">Будь ласка, введіть Mac-адреса</string>
+    <string name="distance">Відстань</string>
 </resources>

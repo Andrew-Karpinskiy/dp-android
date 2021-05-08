@@ -48,7 +48,7 @@ public class BandActivity extends AppCompatActivity {
                 steps.setText("" + bandViewModel.getSteps());
                 calories.setText(String.format("%.0f", bandViewModel.getCalories()));
             } else {
-                Toast.makeText(this, "Please input Mac address", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.mac_address_empty, Toast.LENGTH_SHORT).show();
             }
         });
         saveButton.setOnClickListener((View v) -> {

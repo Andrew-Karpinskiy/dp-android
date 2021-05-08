@@ -72,7 +72,7 @@ public class DistanceJournalActivity extends AppCompatActivity {
             final String[] labelsArray = {"7", "30"};
             final boolean[] checkedItemsArray = {false, false};
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Range")
+            builder.setTitle(R.string.range)
                     .setSingleChoiceItems(labelsArray, -1,
                             (dialog, item) -> {
                                 checkedItemsArray[item] = true;

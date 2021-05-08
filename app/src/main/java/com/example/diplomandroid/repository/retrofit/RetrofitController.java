@@ -68,7 +68,7 @@ public class RetrofitController {
             }
             @Override
             public void onFailure(Call<SimpleResponse> call, Throwable t) {
-                Toast.makeText(context, "LOX!!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, context.getText(R.string.on_failure), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -95,7 +95,7 @@ public class RetrofitController {
 
             @Override
             public void onFailure(Call<AuthResponse> call, Throwable t) {
-                Toast.makeText(context, "LOX!!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, context.getText(R.string.on_failure), Toast.LENGTH_SHORT).show();
             }
         });
     }
