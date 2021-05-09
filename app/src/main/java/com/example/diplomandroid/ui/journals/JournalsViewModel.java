@@ -17,10 +17,10 @@ public class JournalsViewModel extends AndroidViewModel {
 
     public List<Journals> initData() {
         List<Journals> data = new ArrayList<>();
-        data.add(new Journals(R.drawable.ic_wj, R.string.weight_journal_name, R.string.weight));
-        data.add(new Journals(R.drawable.ic_dj, R.string.distance_journal_name, R.string.distance_meters));
-        data.add(new Journals(R.drawable.ic_sj, R.string.steps_journal_name, R.string.steps));
-        data.add(new Journals(R.drawable.ic_cj, R.string.calories_journal_name, R.string.calories));
+        data.add(new Journals(R.drawable.ic_wj, R.string.weight_journal_name, R.string.weight_journal_info));
+        data.add(new Journals(R.drawable.ic_dj, R.string.distance_journal_name, R.string.distance_journal_info));
+        data.add(new Journals(R.drawable.ic_sj, R.string.steps_journal_name, R.string.steps_journal_info));
+        data.add(new Journals(R.drawable.ic_cj, R.string.calories_journal_name, R.string.calories_journal_info));
         return data;
     }
 }

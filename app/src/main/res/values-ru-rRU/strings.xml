@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Diplom Android</string>
-    <string name="menu_profile">Профиль</string>
+    <string name="menu_profile">Профиль и настройки</string>
     <string name="menu_calculators">Калькуляторы</string>
     <string name="menu_settings">Настройки</string>
     <string name="menu_journals">Журналы</string>
@@ -66,4 +66,13 @@
     <string name="new_entity">Новая запись</string>
     <string name="mac_address_empty">Пожалуйста, введите Mac-адрес</string>
     <string name="distance">Расстояние</string>
+    <string name="profile">Профиль</string>
+    <string name="new_pass">Новый пароль</string>
+    <string name="first_name">Имя</string>
+    <string name="last_name">Фамилия</string>
+    <string name="choose_locale">Выбирите язык</string>
+    <string name="weight_journal_info">Журнал изменений веса</string>
+    <string name="calories_journal_info">Журнал съеденных калорий</string>
+    <string name="steps_journal_info">Журнал пройденных шагов</string>
+    <string name="distance_journal_info">Журнал пройденного расстояния</string>
 </resources>
