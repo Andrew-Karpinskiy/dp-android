@@ -75,4 +75,11 @@
     <string name="weight_journal_info">Журнал зміни ваги</string>
     <string name="calories_journal_info">Журнал з\'їдених калорій</string>
     <string name="steps_journal_info">Журнал пройдених кроків</string>
+    <string name="password">Пароль</string>
+    <string name="login">Увійти</string>
+    <string name="registration">Реєстрація</string>
+    <string name="email">Пошта</string>
+    <string name="email_exist">Користувач існує</string>
+    <string name="invalid_email">Неправильна адреса пошти</string>
+    <string name="invalid_pass">Неправильний пароль</string>
 </resources>

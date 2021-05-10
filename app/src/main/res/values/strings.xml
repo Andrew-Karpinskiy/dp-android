@@ -63,6 +63,13 @@
         <item>Woman</item>
     </string-array>
 
+    <string-array name="language_name">
+        <item>English</item>
+        <item>Русский</item>
+        <item>Український</item>
+    </string-array>
+
+
     <string-array name="activity_name">
         <item>No coefficient</item>
         <item>Minimum</item>
@@ -117,4 +124,13 @@
     <string name="weight_journal_info">View weight change information</string>
     <string name="calories_journal_info">View calories eaten</string>
     <string name="steps_journal_info">View the number of steps</string>
+
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="registration">Sign Up</string>
+
+    <string name="email_exist">User exist</string>
+    <string name="invalid_email">Invalid email</string>
+    <string name="invalid_pass">Invalid password</string>
 </resources>

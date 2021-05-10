@@ -63,16 +63,24 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             calculatorDescription = itemView.findViewById(R.id.calculator_description);
             cardView = itemView.findViewById(R.id.card_view_calculators);
             cardView.setOnClickListener((View v) -> {
-                if (calculatorName.getText().equals("Body mass index")) {
+                if (calculatorName.getText().equals("Body mass index")
+                        || calculatorName.getText().equals("Индекс массы тела")
+                        || calculatorName.getText().equals("Індекс маси тіла")) {
                     Intent intent = new Intent(itemView.getContext(), BodyMassIndexActivity.class);
                     itemView.getContext().startActivity(intent);
-                } else if (calculatorName.getText().equals("Daily calories amount")) {
+                } else if (calculatorName.getText().equals("Daily calories amount")
+                        || calculatorName.getText().equals("Ежедневное количество калорий")
+                        || calculatorName.getText().equals("Щоденна кількість калорій")) {
                     Intent intent = new Intent(itemView.getContext(), DailyCaloriesAmountActivity.class);
                     itemView.getContext().startActivity(intent);
-                } else if (calculatorName.getText().equals("Daily water amount")) {
+                } else if (calculatorName.getText().equals("Daily water amount")
+                        || calculatorName.getText().equals("Ежедневное количество воды")
+                        || calculatorName.getText().equals("Щоденна кількість води")) {
                     Intent intent = new Intent(itemView.getContext(), DailyWaterAmountActivity.class);
                     itemView.getContext().startActivity(intent);
-                } else if (calculatorName.getText().equals("Ideal weight")) {
+                } else if (calculatorName.getText().equals("Ideal weight")
+                        || calculatorName.getText().equals("Идеальный вес")
+                        || calculatorName.getText().equals("Ідеальна вага")) {
                     Intent intent = new Intent(itemView.getContext(), IdealWeightActivity.class);
                     itemView.getContext().startActivity(intent);
                 }

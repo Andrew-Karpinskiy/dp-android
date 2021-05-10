@@ -63,16 +63,24 @@ public class JournalsRecyclerViewAdapter extends RecyclerView.Adapter<JournalsRe
             journalDescription = itemView.findViewById(R.id.calculator_description);
             cardView = itemView.findViewById(R.id.card_view_calculators);
             cardView.setOnClickListener((View v) -> {
-                if (journalName.getText().equals("Distance journal")) {
+                if (journalName.getText().equals("Distance journal")
+                        || journalName.getText().equals("Журнал расстояния")
+                        || journalName.getText().equals("Журнал відстані")) {
                     Intent intent = new Intent(itemView.getContext(), DistanceJournalActivity.class);
                     itemView.getContext().startActivity(intent);
-                } else if (journalName.getText().equals("Steps journal")) {
+                } else if (journalName.getText().equals("Steps journal")
+                        || journalName.getText().equals("Журнал шагов")
+                        || journalName.getText().equals("Журнал кроків")) {
                     Intent intent = new Intent(itemView.getContext(), StepsJournalActivity.class);
                     itemView.getContext().startActivity(intent);
-                } else if (journalName.getText().equals("Calories journal")) {
+                } else if (journalName.getText().equals("Calories journal")
+                        || journalName.getText().equals("Журнал калорий")
+                        || journalName.getText().equals("Журнал калорій")) {
                     Intent intent = new Intent(itemView.getContext(), CaloriesJournalActivity.class);
                     itemView.getContext().startActivity(intent);
-                } else if (journalName.getText().equals("Weight journal")) {
+                } else if (journalName.getText().equals("Weight journal")
+                        || journalName.getText().equals("Журнал веса")
+                        || journalName.getText().equals("Журнал ваги")) {
                     Intent intent = new Intent(itemView.getContext(), WeightJournalActivity.class);
                     itemView.getContext().startActivity(intent);
                 }

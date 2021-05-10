@@ -180,12 +180,15 @@
             android:id="@+id/profLocaleSpinner"
             android:layout_width="273dp"
             android:layout_height="29dp"
+            android:entries="@array/language_name"
+            android:popupBackground="@color/colorCardBackGround"
+            android:theme="@style/mySpinnerItemStyle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/profLanguageLabel"
             app:layout_constraintTop_toBottomOf="@+id/profLanguageLabel"
-            app:layout_constraintVertical_bias="0.045" />
+            app:layout_constraintVertical_bias="0.029" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

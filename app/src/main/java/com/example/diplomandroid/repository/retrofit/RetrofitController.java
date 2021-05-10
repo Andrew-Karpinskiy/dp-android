@@ -9,7 +9,6 @@ import android.widget.Toast;
 import androidx.core.content.ContextCompat;
 
 import com.example.diplomandroid.R;
-import com.example.diplomandroid.activity.LoginActivity;
 import com.example.diplomandroid.repository.retrofit.request.AuthRequest;
 import com.example.diplomandroid.repository.retrofit.request.CalculatorsRequest;
 import com.example.diplomandroid.repository.retrofit.request.JournalSaveRequest;
@@ -18,6 +17,7 @@ import com.example.diplomandroid.repository.retrofit.response.AuthResponse;
 import com.example.diplomandroid.repository.retrofit.response.CalculatorsResponse;
 import com.example.diplomandroid.repository.retrofit.response.JournalResponse;
 import com.example.diplomandroid.repository.retrofit.response.SimpleResponse;
+import com.example.diplomandroid.ui.LoginActivity;
 import com.example.diplomandroid.ui.journals.calories.CaloriesJournalActivity;
 import com.example.diplomandroid.ui.journals.distance.DistanceJournalActivity;
 import com.example.diplomandroid.ui.journals.steps.StepsJournalActivity;
@@ -58,7 +58,7 @@ public class RetrofitController {
             public void onResponse(Call<SimpleResponse> call, Response<SimpleResponse> response) {
                 if (response.isSuccessful()) {
                     if (response.body().getMessage().equals("Email exist")) {
-                        Toast.makeText(context, "Email exist", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, R.string.email_exist, Toast.LENGTH_SHORT).show();
                     } else {
                         Intent intent = new Intent(context, LoginActivity.class);
                         context.startActivity(intent);
@@ -82,13 +82,11 @@ public class RetrofitController {
                 if (response.isSuccessful()) {
                     String result = response.body().getMessage();
                     if (result.equals("Invalid email")) {
-                        Toast.makeText(context, "Invalid email", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, R.string.invalid_email, Toast.LENGTH_SHORT).show();
                     } else if (result.equals("Invalid password")) {
-                        Toast.makeText(context, "Invalid password", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, R.string.invalid_pass, Toast.LENGTH_SHORT).show();
                     } else {
                         Token.setToken(response.body().getToken());
-//                        Intent intent = new Intent(context, MainActivity.class);
-                        //                      context.startActivity(intent);
                     }
                 }
             }
@@ -335,33 +333,3 @@ public class RetrofitController {
         });
     }
 }
-
-//    public void testAuth(Context context) {
-//        Call<ApiResponse> c = client.testAuth(Token.getToken());
-//        c.enqueue(new Callback<ApiResponse>() {
-//            @Override
-//            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
-//                Toast.makeText(context, response.body().getResponse(), Toast.LENGTH_SHORT).show();
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ApiResponse> call, Throwable t) {
-//                Toast.makeText(context, "LOX!!!", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//    }
-//
-//    public void testNoAuth(Context context) {
-//        Call<ApiResponse> c = client.testNoAuth();
-//        c.enqueue(new Callback<ApiResponse>() {
-//            @Override
-//            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
-//                Toast.makeText(context, response.body().getResponse(), Toast.LENGTH_SHORT).show();
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ApiResponse> call, Throwable t) {
-//                Toast.makeText(context, "LOX!!!", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//    }

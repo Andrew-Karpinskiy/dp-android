@@ -35,8 +35,8 @@
         <activity android:name=".ui.calculators.iw.IdealWeightActivity" />
         <activity android:name=".ui.calculators.dwa.DailyWaterAmountActivity" />
         <activity android:name=".ui.calculators.bmi.BodyMassIndexActivity" />
-        <activity android:name=".activity.LoginActivity" />
-        <activity android:name=".activity.RegistrationActivity" />
+        <activity android:name=".ui.LoginActivity" />
+        <activity android:name=".ui.RegistrationActivity" />
     </application>
 
 </manifest>

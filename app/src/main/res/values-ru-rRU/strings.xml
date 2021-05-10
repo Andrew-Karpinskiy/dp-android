@@ -75,4 +75,11 @@
     <string name="calories_journal_info">Журнал съеденных калорий</string>
     <string name="steps_journal_info">Журнал пройденных шагов</string>
     <string name="distance_journal_info">Журнал пройденного расстояния</string>
+    <string name="password">Пароль</string>
+    <string name="login">Войти</string>
+    <string name="registration">Регистрация</string>
+    <string name="email">Почта</string>
+    <string name="email_exist">Пользователь существует</string>
+    <string name="invalid_email">Неверный адрес  почты</string>
+    <string name="invalid_pass">Неправильный пароль</string>
 </resources>
