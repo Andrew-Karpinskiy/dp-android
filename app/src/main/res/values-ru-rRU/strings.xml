@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Diplom Android</string>
+    <string name="app_name">Health</string>
     <string name="menu_profile">Профиль и настройки</string>
     <string name="menu_calculators">Калькуляторы</string>
     <string name="menu_settings">Настройки</string>
@@ -82,4 +82,6 @@
     <string name="email_exist">Пользователь существует</string>
     <string name="invalid_email">Неверный адрес  почты</string>
     <string name="invalid_pass">Неправильный пароль</string>
+    <string name="new_email">Новый емейл</string>
+    <string name="new_email_saved">Емейл сохранен</string>
 </resources>

@@ -73,7 +73,7 @@ public class StepsJournalActivity extends AppCompatActivity {
 
         TextView range = findViewById(R.id.sjSelectButton);
         range.setOnClickListener(view -> {
-            final String[] labelsArray = {"7", "30"};
+            final String[] labelsArray = {"7 днів", "30 днів"};
             final boolean[] checkedItemsArray = {false, false};
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(R.string.range)

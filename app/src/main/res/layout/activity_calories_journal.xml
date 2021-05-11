@@ -87,10 +87,10 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.075"
+                app:layout_constraintHorizontal_bias="0.042"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cjLabel"
-                app:layout_constraintVertical_bias="0.483"
+                app:layout_constraintVertical_bias="0.475"
                 app:srcCompat="@android:drawable/ic_menu_recent_history" />
 
             <ImageView
@@ -99,7 +99,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="@+id/cjSelectIcon"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.293"
+                app:layout_constraintHorizontal_bias="0.094"
                 app:layout_constraintStart_toEndOf="@+id/cjSelectButton"
                 app:layout_constraintTop_toTopOf="@+id/cjSelectIcon"
                 app:layout_constraintVertical_bias="0.0"

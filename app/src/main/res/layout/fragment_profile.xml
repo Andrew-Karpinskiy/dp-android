@@ -89,11 +89,11 @@
             app:layout_constraintVertical_bias="0.152" />
 
         <Button
-            android:id="@+id/profChangePassButton"
+            android:id="@+id/profChangeEmailButton"
             android:layout_width="118dp"
             android:layout_height="29dp"
             android:background="@color/colorPrimary"
-            android:text="@string/new_pass"
+            android:text="@string/new_email"
             android:textColor="@color/colorText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView"
@@ -108,6 +108,7 @@
             android:layout_height="wrap_content"
             android:text="Андрей"
             android:textColor="@color/colorText"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/profNameLabel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.241"
@@ -121,6 +122,7 @@
             android:layout_height="wrap_content"
             android:text="Карпинский"
             android:textColor="@color/colorText"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/profLastNameLabel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

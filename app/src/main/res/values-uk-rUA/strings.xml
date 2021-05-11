@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Diplom Android</string>
+    <string name="app_name">Health</string>
     <string name="menu_profile">Профіль і налаштування</string>
     <string name="menu_calculators">Калькулятори</string>
     <string name="menu_settings">Налаштування</string>
@@ -31,7 +31,7 @@
     <string name="severe_underweight">Сильна недостатність</string>
     <string name="underweight">Недостатня вага</string>
     <string name="norm">Норма</string>
-    <string name="overweight">Надмірна вага (до ожиріння)</string>
+    <string name="overweight">Надмірна вага</string>
     <string name="obesity">Ожиріння</string>
     <string name="acute_obesity">Гостре ожиріння</string>
     <string name="very_severe_obesity">Дуже важке ожиріння</string>
@@ -42,7 +42,7 @@
     <string name="your_daily_calories">Щоденна кількість калорій:</string>
     <string name="weight">Вага</string>
     <string name="height">Зріст</string>
-    <string name="activity_rates">Показники активності</string>
+    <string name="activity_rates">Показник активності</string>
     <string name="age">Вік</string>
     <string name="calories">калорії</string>
     <string name="years">вік</string>
@@ -82,4 +82,6 @@
     <string name="email_exist">Користувач існує</string>
     <string name="invalid_email">Неправильна адреса пошти</string>
     <string name="invalid_pass">Неправильний пароль</string>
+    <string name="new_email">Новий емейл</string>
+    <string name="new_email_saved">Емейл збереженно</string>
 </resources>
