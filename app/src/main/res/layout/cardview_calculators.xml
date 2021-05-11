@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="10dp"
+    android:paddingTop="10dp"
+    android:paddingEnd="10dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_calculators"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#3E3E3E"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="402dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/calculator_image"
+                android:layout_width="81dp"
+                android:layout_height="82dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.015"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/ic_menu_calculators" />
+
+            <TextView
+                android:id="@+id/calculator_name"
+                android:layout_width="292dp"
+                android:layout_height="32dp"
+                android:gravity="center"
+                android:text="Body mass index"
+                android:textColor="@color/design_default_color_background"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toBottomOf="@+id/calculator_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/calculator_image"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.22" />
+
+            <TextView
+                android:id="@+id/calculator_description"
+                android:layout_width="292dp"
+                android:layout_height="26dp"
+                android:gravity="center"
+                android:text="Description"
+                android:textColor="@color/design_default_color_background"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/calculator_image"
+                app:layout_constraintEnd_toEndOf="@+id/calculator_name"
+                app:layout_constraintHorizontal_bias="0.542"
+                app:layout_constraintStart_toStartOf="@+id/calculator_name"
+                app:layout_constraintTop_toTopOf="@+id/calculator_name"
+                app:layout_constraintVertical_bias="0.707" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.diplomandroid">
 
+    <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -15,15 +16,27 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="n">
-        <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".RegistrationActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.journals.weight.WeightJournalActivity"></activity>
+        <activity android:name=".ui.journals.steps.StepsJournalActivity" />
+        <activity android:name=".ui.journals.distance.DistanceJournalActivity" />
+        <activity android:name=".ui.journals.calories.CaloriesJournalActivity" />
+        <activity android:name=".ui.band.BandActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.calculators.dca.DailyCaloriesAmountActivity" />
+        <activity android:name=".ui.calculators.iw.IdealWeightActivity" />
+        <activity android:name=".ui.calculators.dwa.DailyWaterAmountActivity" />
+        <activity android:name=".ui.calculators.bmi.BodyMassIndexActivity" />
+        <activity android:name=".ui.LoginActivity" />
+        <activity android:name=".ui.RegistrationActivity" />
     </application>
 
 </manifest>

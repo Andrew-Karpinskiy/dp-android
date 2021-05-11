@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_calculators">
+    <fragment
+        android:id="@+id/nav_calculators"
+        android:name="com.example.diplomandroid.ui.calculators.CalculatorsFragment"
+        android:label="@string/menu_calculators"
+        tools:layout="@layout/fragment_calculators">
+        <action
+            android:id="@+id/action_nav_calculators_to_bodyMassIndexActivity"
+            app:destination="@id/bodyMassIndexActivity" />
+        <action
+            android:id="@+id/action_nav_calculators_to_dailyCaloriesAmountActivity"
+            app:destination="@id/dailyCaloriesAmountActivity" />
+        <action
+            android:id="@+id/action_nav_calculators_to_dailyWaterAmountActivity"
+            app:destination="@id/dailyWaterAmountActivity" />
+        <action
+            android:id="@+id/action_nav_calculators_to_idealWeightActivity"
+            app:destination="@id/idealWeightActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_journal"
+        android:name="com.example.diplomandroid.ui.journals.JournalsFragment"
+        android:label="@string/menu_journals"
+        tools:layout="@layout/fragment_journals">
+        <action
+            android:id="@+id/action_nav_journal_to_caloriesJournalActivity"
+            app:destination="@id/caloriesJournalActivity" />
+        <action
+            android:id="@+id/action_nav_journal_to_distanceJournalActivity"
+            app:destination="@id/distanceJournalActivity" />
+        <action
+            android:id="@+id/action_nav_journal_to_stepsJournalActivity"
+            app:destination="@id/stepsJournalActivity" />
+        <action
+            android:id="@+id/action_nav_journal_to_weightJournalActivity"
+            app:destination="@id/weightJournalActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.example.diplomandroid.ui.profile.ProfileFragment"
+        android:label="@string/menu_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.example.diplomandroid.ui.settings.SettingsFragment"
+        android:label="@string/menu_settings"
+        tools:layout="@layout/fragment_settings" />
+    <activity
+        android:id="@+id/nav_band"
+        android:name="com.example.diplomandroid.ui.band.BandActivity"
+        android:label="activity_band"
+        tools:layout="@layout/activity_band" />
+    <activity
+        android:id="@+id/bodyMassIndexActivity"
+        android:name="com.example.diplomandroid.ui.calculators.bmi.BodyMassIndexActivity"
+        android:label="activity_body_mass_index"
+        tools:layout="@layout/activity_body_mass_index" />
+    <activity
+        android:id="@+id/dailyCaloriesAmountActivity"
+        android:name="com.example.diplomandroid.ui.calculators.dca.DailyCaloriesAmountActivity"
+        android:label="activity_daily_calories_amount"
+        tools:layout="@layout/activity_daily_calories_amount" />
+    <activity
+        android:id="@+id/dailyWaterAmountActivity"
+        android:name="com.example.diplomandroid.ui.calculators.dwa.DailyWaterAmountActivity"
+        android:label="activity_daily_water_amount"
+        tools:layout="@layout/activity_daily_water_amount" />
+    <activity
+        android:id="@+id/idealWeightActivity"
+        android:name="com.example.diplomandroid.ui.calculators.iw.IdealWeightActivity"
+        android:label="activity_ideal_weight"
+        tools:layout="@layout/activity_ideal_weight" />
+    <activity
+        android:id="@+id/caloriesJournalActivity"
+        android:name="com.example.diplomandroid.ui.journals.calories.CaloriesJournalActivity"
+        android:label="activity_calories_journal"
+        tools:layout="@layout/activity_calories_journal" />
+    <activity
+        android:id="@+id/distanceJournalActivity"
+        android:name="com.example.diplomandroid.ui.journals.distance.DistanceJournalActivity"
+        android:label="activity_distance_journal"
+        tools:layout="@layout/activity_distance_journal" />
+    <activity
+        android:id="@+id/stepsJournalActivity"
+        android:name="com.example.diplomandroid.ui.journals.steps.StepsJournalActivity"
+        android:label="activity_steps_journal"
+        tools:layout="@layout/activity_steps_journal" />
+    <activity
+        android:id="@+id/weightJournalActivity"
+        android:name="com.example.diplomandroid.ui.journals.weight.WeightJournalActivity"
+        android:label="activity_weight_journal"
+        tools:layout="@layout/activity_weight_journal" />
+    <fragment
+        android:id="@+id/saveDialog"
+        android:name="com.example.diplomandroid.ui.band.SaveDialog"
+        android:label="SaveDialog" />
+</navigation>

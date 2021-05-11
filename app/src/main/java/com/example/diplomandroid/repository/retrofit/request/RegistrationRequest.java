@@ -1,10 +1,10 @@
-package com.example.diplomandroid.retrofit;
+package com.example.diplomandroid.repository.retrofit.request;
 
-public class AuthRequest {
+public class RegistrationRequest {
     private String email;
     private String password;
 
-    public AuthRequest(String email, String password) {
+    public RegistrationRequest(String email, String password) {
         this.email = email;
         this.password = password;
     }
